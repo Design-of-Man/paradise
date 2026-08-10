@@ -49,13 +49,16 @@ export default function HomePage() {
       {/* Hero                                                        */}
       {/* ---------------------------------------------------------- */}
       <section className="grain relative flex min-h-[88vh] items-center overflow-hidden bg-ink pb-16 pt-28 text-paper md:pt-32">
-        {/* Full-bleed aerial, held well back so the headline stays legible */}
+        {/* Full-bleed aerial, held well back so the headline stays legible.
+            quality is raised because a hero stretched to 2560px shows
+            compression artefacts at the Next.js default of 75. */}
         <Image
           src="/images/brand/hero.jpg"
           alt=""
           aria-hidden
           fill
           priority
+          quality={90}
           sizes="100vw"
           className="object-cover object-center"
         />
@@ -69,14 +72,15 @@ export default function HomePage() {
             backgroundSize: "80px 80px",
           }}
         />
-        {/* Opaque behind the copy, easing off so the aerial reads on the right. */}
+        {/* Opaque behind the copy, easing off hard so the aerial reads on the
+            right. The vertical pass only anchors the top and bottom edges. */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/45"
+          className="absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/15"
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/40"
+          className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/30"
         />
 
         <div className="shell relative z-10">
