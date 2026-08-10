@@ -29,7 +29,12 @@ export async function generateMetadata({
   if (!service) return {};
 
   return pageMeta({
-    title: `${service.name} — ${service.tagline}`,
+    // The tagline used to sit here, which pushed these past 80 characters once
+    // the "| Paradise Ventures" template was appended — so the brand and half
+    // the tagline were cut off in results. A short qualifier keeps every service
+    // title under the truncation limit and still disambiguates the one-word
+    // names, since "Leasing" or "Acquisitions" alone says nothing about sector.
+    title: `${service.name} — Retail Real Estate`,
     description: service.summary,
     path: `/services/${service.slug}`,
     keywords: [
