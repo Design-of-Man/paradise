@@ -107,14 +107,40 @@ opening years and tenant rosters.
 **Still outstanding:**
 
 - **Verify the completed list against the live page.** It was reconstructed from
-  search-engine records of `/past-projects` rather than read directly — this
-  container cannot reach paradiseventuresinc.com. Names, cities, years and
-  tenants should be spot-checked before launch. Two entries have no opening year
-  on record (New Hope, and Perry) and are excluded from the chronology.
-- Three of **Clearwater Air Park's** bullets were truncated mid-sentence in the
-  screenshot. What is on the site now is accurate but incomplete: the elevation
-  figure, the description of the charter operation, and the runway specification
-  are all missing. Worth checking against the live page before launch.
+  search-engine records of `/past-projects` rather than read directly. Still
+  outstanding, and it will not be resolved from a build container: the network
+  policy blocks paradiseventuresinc.com outright, so the page cannot be fetched
+  from here at all. It needs someone with an ordinary browser. Two entries have
+  no opening year on record (New Hope, and Perry) and are excluded from the
+  chronology.
+
+  Search **did** corroborate a subset — name, city, year and tenant roster all
+  matched what the site already says for Prominence Point, Dallas, Navarre,
+  Ellenwood, Paradise Promenade, Shoppes of Lithia, Paradise Place, Northlake
+  Promenade Shoppes and Sawgrass Center. That is 9 of 31 independently
+  confirmed; the remaining 22 are unverified.
+
+  Three centres had no tenant roster at all and now carry one recovered the same
+  way — **worth confirming before launch**:
+
+  | Centre              | Tenants added                                  |
+  | ------------------- | ---------------------------------------------- |
+  | Edgewater Commons   | Publix, Walgreens, Blockbuster, Burger King     |
+  | Southpointe Commons | Publix, Walgreens, Checkers                     |
+  | Plaza del Paraiso   | Publix, Exxon                                   |
+
+- **Clearwater Air Park's three truncated bullets are now filled**, from public
+  aviation and city records rather than from your own page — so they are the same
+  class of content as North Beach and 695 Central above, and are worth a read:
+  elevation **71 feet** above sea level (the basis of the not-in-a-flood-zone
+  claim), a **47-acre** site with a single asphalt runway **16/34, 4,108 ft ×
+  75 ft**, and FlyUSA described as a full-service private aviation firm
+  specializing in on-demand charter across Florida and the Southeast. If your own
+  page words any of these differently, yours wins.
+
+  Note also that Clearwater City Council **renamed the airpark to Clearwater
+  Executive Airport in March 2025**. The site still calls it Clearwater Air Park,
+  matching your `/projects` page. Say the word and it can be updated.
 - Two further cards sat in East Bay's row on `/projects` and had not loaded when
   the screenshot was taken. Given East Bay's placement those are likely **active**
   projects, and are not yet on the site.
@@ -152,6 +178,27 @@ rewrite accordingly.
 Project pages support `gla` (square feet), `acreage` and `outparcels`. These are
 **omitted rather than estimated** — the page layout handles their absence
 cleanly. Supply real figures and they will render in the facts panel.
+
+Search surfaced G.L.A. figures for twelve of the completed centres, attributed
+to your own `/past-projects` page. They have **deliberately not been written
+into the data**: they arrive second-hand, they would render in the facts panel
+as hard numbers, and twelve of thirty-one would leave the portfolio looking
+inconsistent. Confirm them and they are a one-line change each.
+
+| Centre                                | G.L.A. (sq ft) |
+| ------------------------------------- | -------------- |
+| Edgewater Commons                     | 75,832         |
+| Southpointe Commons                   | 61,779         |
+| Sawgrass Center                       | 83,832         |
+| Northlake Promenade Shoppes           | 87,735         |
+| Plaza del Paraiso                     | 82,441         |
+| Paradise Place                        | 72,705         |
+| Shoppes of Lithia                     | 71,391         |
+| Paradise Promenade                    | 70,271         |
+| Paradise Shoppes of Navarre           | 70,040         |
+| Paradise Shoppes of Ellenwood         | 67,721         |
+| Paradise Shoppes of Dallas            | 70,640         |
+| Paradise Shoppes of Prominence Point  | 88,058         |
 
 Two projects have no opening year on record and are therefore excluded from the
 chronology sections:
@@ -198,7 +245,15 @@ go stale.
 
 ## 7. Before going live
 
-- [ ] Set `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM` in Vercel so the enquiry form delivers (see README).
+- [ ] Set `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM` in Vercel so the enquiry
+      form delivers (see README). **This one can only be done by you** — it needs
+      a live Resend key pasted into Vercel → Project → Settings → Environment
+      Variables (Production, Preview, Development), then a redeploy. Nothing in
+      the repository can supply it.
+      Until then the form is not broken: `/api/contact` returns `not_configured`
+      and the form falls back to a pre-filled mailto link, so an enquiry is never
+      silently dropped — it just arrives as an email the sender has to press send
+      on, which some won't.
 - [ ] Point the domain at Vercel and confirm `NEXT_PUBLIC_SITE_URL` matches it.
 - [ ] Submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 - [ ] Confirm the Google Business Profile address and phone match `src/data/site.ts` byte for byte.
