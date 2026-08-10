@@ -19,6 +19,13 @@ const PRINT_CSS = `
   header.fixed { position: absolute !important; }
   section, article, figure, li { break-inside: avoid; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  /* Chromium's print path drops CSS gradients on overlay layers, which would
+     leave the hero headline sitting on bare photography. Swap the gradient
+     scrims for a flat one. */
+  .hero-scrim { background-image: none !important; background-color: rgba(14,20,29,0.74) !important; }
+  /* vh units resolve against the print page, not the viewport, which stretches
+     full-height sections absurdly. */
+  section, header { min-height: 0 !important; }
 `;
 
 const done = [];
@@ -26,7 +33,7 @@ for (let i = 0; i < urls.length; i++) {
   const path = urls[i];
   const p = await ctx.newPage();
   try {
-    await p.goto("http://localhost:3311" + path, {
+    await p.goto("http://localhost:3344" + path, {
       waitUntil: "networkidle",
       timeout: 45000,
     });

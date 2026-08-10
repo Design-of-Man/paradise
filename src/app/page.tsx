@@ -73,14 +73,16 @@ export default function HomePage() {
           }}
         />
         {/* Opaque behind the copy, easing off hard so the aerial reads on the
-            right. The vertical pass only anchors the top and bottom edges. */}
+            right. The vertical pass only anchors the top and bottom edges.
+            `hero-scrim` is a hook for print, where Chromium drops CSS gradients
+            and the headline would otherwise sit on bare photography. */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/15"
+          className="hero-scrim absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/15"
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/30"
+          className="hero-scrim absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/30"
         />
 
         <div className="shell relative z-10">
