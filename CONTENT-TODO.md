@@ -28,18 +28,22 @@ the detail page.
 Team headshots would slot into `public/images/team/<slug>.jpg` the same way,
 once the profile components are pointed at them.
 
-### Images supplied but not yet placed
+All supplied photography is now placed. Sector photography under
+`public/images/sectors/` is wired into the `/partners/[slug]` pages, and the
+Clearwater Beach aerial is the homepage hero.
 
-Two projects have photography in the repo but no copy, so they are not in the
-portfolio yet. Send a few lines on each and they become full pages:
+**Two entries were written from press and trade coverage rather than your own
+copy, and are worth checking:**
 
-- **Clearwater Beach garage / mixed-use** — `projects/clearwater-garage*.jpg`
-  (one of these is currently the homepage hero, `brand/hero.jpg`)
-- **695 Central, St. Petersburg** — `projects/695-central*.png`
+- **North Beach Parking Plaza** (Clearwater Beach, 2016) — seven storeys, 700+
+  spaces, ~12,000 sq ft of retail, joint venture with the City of Clearwater,
+  anchored by Another Broken Egg Cafe and Alati.
+- **695 Central** (St. Petersburg) — acquired December 2019, ~8,000 sq ft of
+  restaurant space over ~8,000 sq ft of office, tenanted by Melting Pot,
+  Southern Grounds Coffee and IMAGE Studios on ten-year net leases.
 
-Sector photography is filed under `public/images/sectors/` (pharmacy, grocery,
-restaurant, fuel, automotive, banking, fitness) and is ready to be wired into
-the `/partners/[slug]` pages — say the word and I will.
+Both are currently filed as **completed**. If either belongs under Active
+Development on your own site, that is a one-word change.
 
 ---
 

@@ -24,7 +24,9 @@ export type ProjectType =
   | "Retail Redevelopment"
   | "Lifestyle Center"
   | "Net-Leased Retail"
-  | "Aviation";
+  | "Aviation"
+  | "Parking & Retail"
+  | "Mixed-Use";
 
 export interface Project {
   slug: string;
@@ -140,6 +142,7 @@ export const projects: Project[] = [
     status: "in-development",
     type: "Aviation",
     tenants: ["FlyUSA-PV"],
+    featured: true,
     hasPhoto: true,
     summary:
       "A general aviation airpark in Pinellas County, operated by FlyUSA-PV and serving private jet charter.",
@@ -751,6 +754,69 @@ export const projects: Project[] = [
     body: [
       "Paradise Shoppes of Perry serves Perry, in Houston County, middle Georgia — the same county as the firm's Warner Robins center.",
       "Returning to a county already worked is a deliberate pattern across the portfolio. Entitlement history, working relationships with local staff, and demonstrated trade-area performance all carry over, and each of those materially reduces execution risk on the next project.",
+    ],
+  },
+  {
+    slug: "north-beach-parking-plaza",
+    name: "North Beach Parking Plaza",
+    city: "Clearwater Beach",
+    state: "FL",
+    stateName: "Florida",
+    address: "490 Poinsettia Avenue, Clearwater Beach, FL",
+    year: 2016,
+    status: "completed",
+    type: "Parking & Retail",
+    tenants: ["Another Broken Egg Cafe", "Alati"],
+    hasPhoto: true,
+    gallery: [
+      "/images/projects/north-beach-parking-plaza-2.jpg",
+      "/images/projects/north-beach-parking-plaza-3.jpg",
+    ],
+    featured: true,
+    summary:
+      "A seven-storey, 700-space parking structure with ground-floor retail on Clearwater Beach, delivered as a joint venture with the City of Clearwater.",
+    highlights: [
+      "Seven-storey parking structure with more than 700 spaces, opened December 2016.",
+      "Developed as a joint venture between the City of Clearwater and Paradise Ventures.",
+      "Almost 12,000 square feet of ground-floor retail, anchored by Another Broken Egg Cafe and Alati.",
+      "Connected to Pelican Walk Plaza, the largest retail building on Clearwater Beach.",
+      "A few blocks north of the State Road 60 roundabout, on Poinsettia Avenue.",
+    ],
+    body: [
+      "North Beach Parking Plaza is a seven-storey structure on Poinsettia Avenue, a few blocks north of the State Road 60 roundabout on Clearwater Beach. It opened in December 2016 with more than seven hundred spaces and almost twelve thousand square feet of ground-floor retail, and connects directly to Pelican Walk Plaza — the largest retail building on the beach.",
+      "The project was delivered as a joint venture with the City of Clearwater, which is a different proposition to a private development. A public partner brings a public process: council approvals, community consultation, and an obligation to solve a civic problem rather than only an economic one. Clearwater Beach's problem was parking, and the constraint that makes beachfront land valuable is the same one that makes it scarce.",
+      "Structured parking is a genuinely difficult format to make pay. It is expensive to build, generates revenue per space rather than per square foot, and is unforgiving on circulation — a ramp geometry that frustrates drivers on a busy Saturday undermines the whole asset. Wrapping the ground floor in retail is what converts a utility into a place: visitors arriving to park walk out through active frontage rather than a blank wall.",
+      "Ground-floor tenancy went to Another Broken Egg Cafe and Alati, uses that trade on exactly the pattern beach parking generates — arrivals in the morning, dwell through the day.",
+    ],
+  },
+  {
+    slug: "695-central",
+    name: "695 Central",
+    city: "St. Petersburg",
+    state: "FL",
+    stateName: "Florida",
+    address: "695 Central Avenue, St. Petersburg, FL",
+    status: "completed",
+    type: "Mixed-Use",
+    gla: 16000,
+    tenants: ["Melting Pot", "Southern Grounds Coffee", "IMAGE Studios"],
+    hasPhoto: true,
+    gallery: ["/images/projects/695-central-2.jpg"],
+    featured: true,
+    summary:
+      "A two-storey downtown St. Petersburg building acquired in 2019 and renovated into restaurant and office space in the heart of the arts district.",
+    highlights: [
+      "Acquired in December 2019 and taken through a multi-million-dollar renovation.",
+      "Ground floor of roughly 8,000 square feet of restaurant space, divisible between two or three tenants.",
+      "Second floor of roughly 8,000 square feet of office space.",
+      "Tenants include Melting Pot, Southern Grounds Coffee and IMAGE Studios, on ten-year net leases.",
+      "Adjacent to the Morean Arts Center and across from the Chihuly Collection.",
+    ],
+    body: [
+      "695 Central is a two-storey building in the heart of downtown St. Petersburg, acquired by Paradise Ventures in December 2019 and taken through a substantial renovation. It sits adjacent to the Morean Arts Center and directly across from the Chihuly Collection — about as central to the city's arts district as an address gets.",
+      "The building was repositioned rather than replaced: roughly eight thousand square feet of restaurant space on the ground floor, planned to divide between two or three tenants, over a similar floorplate of office space above. Splitting a ground floor for restaurant use is more involved than it sounds, because each tenancy needs its own kitchen services, grease interception and venting designed in before walls go up.",
+      "The renovation timetable ran directly into the pandemic, which halted downtown restaurant leasing across the country. Holding a repositioning project through that period — rather than discounting the space to fill it — is what produced the eventual outcome: Melting Pot, Southern Grounds Coffee and IMAGE Studios, on ten-year net leases.",
+      "Ten-year terms on a downtown retail building are the clearest evidence that a repositioning worked. Tenants commit for a decade when they believe the location and the building will still be right at the end of it.",
     ],
   },
 ];
