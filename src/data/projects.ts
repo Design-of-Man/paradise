@@ -20,7 +20,11 @@ export type ProjectType =
   | "Grocery-Anchored Center"
   | "Single-Tenant Retail"
   | "Neighborhood Center"
-  | "Mixed Retail";
+  | "Mixed Retail"
+  | "Retail Redevelopment"
+  | "Lifestyle Center"
+  | "Net-Leased Retail"
+  | "Aviation";
 
 export interface Project {
   slug: string;
@@ -28,6 +32,8 @@ export interface Project {
   city: string;
   state: string;
   stateName: string;
+  /** Street address, where published. */
+  address?: string;
   /** Year the center opened for business. */
   year?: number;
   status: ProjectStatus;
@@ -40,14 +46,149 @@ export interface Project {
   gla?: number;
   acreage?: number;
   outparcels?: number;
+  /**
+   * Set once real photography exists at /public/images/projects/<slug>.jpg.
+   * Until then the generated site plan renders instead — see SiteVisual.
+   */
+  hasPhoto?: boolean;
+  /** Additional photography, as paths under /public. Rendered as a gallery. */
+  gallery?: string[];
   /** One-line summary used on cards and in meta descriptions. */
   summary: string;
   /** Body paragraphs for the detail page. */
   body: string[];
+  /** Published bullet points, shown as a highlights list on the detail page. */
+  highlights?: string[];
   featured?: boolean;
 }
 
 export const projects: Project[] = [
+  /* ---------------------------------------------------------------- */
+  /* Active development — copy taken from the firm's /projects page.    */
+  /* ---------------------------------------------------------------- */
+  {
+    slug: "keene-plaza",
+    name: "Keene Plaza",
+    city: "Largo",
+    state: "FL",
+    stateName: "Florida",
+    address: "East Bay Drive & Keene Road, Largo, FL",
+    status: "in-development",
+    type: "Retail Redevelopment",
+    anchor: "Sprouts Farmers Market",
+    tenants: ["Sprouts Farmers Market", "Badcock Home Furniture & More"],
+    featured: true,
+    hasPhoto: true,
+    gallery: [
+      "/images/projects/keene-plaza-2.jpg",
+      "/images/projects/keene-plaza-3.jpg",
+    ],
+    summary:
+      "A Mid-Pinellas redevelopment bringing Sprouts Farmers Market and Badcock Home Furniture to the densest retail corridor in the submarket.",
+    highlights: [
+      "Development plans include the demolition of approximately 35,500 SF of existing retail space at the northeast leg of the center to make room for two brand-new retailers, Sprouts Farmers Market and Badcock Home Furniture & More.",
+      "The property is located along the densest retail corridor within the Mid-Pinellas retail submarket.",
+      "The balance of the shopping center will receive a face lift.",
+      "Improvements to the site infrastructure are also planned, including parking lot, lighting, and driveway upgrades.",
+    ],
+    body: [
+      "Keene Plaza sits at East Bay Drive and Keene Road in Largo, along the densest retail corridor in the Mid-Pinellas submarket. The redevelopment removes roughly 35,500 square feet of existing retail at the northeast leg of the center to make room for two brand-new retailers: Sprouts Farmers Market and Badcock Home Furniture & More.",
+      "Redevelopment is a different discipline to ground-up work. The trade area is already proven — the question is whether the existing improvements are the highest and best use of a corner this good. Here the answer was to take part of the center down rather than lease it as-is.",
+      "The balance of the shopping center receives a face lift, and site infrastructure is being upgraded alongside it — parking lot, lighting and driveway improvements that determine how the asset performs long after the new anchors open.",
+    ],
+  },
+  {
+    slug: "sundial-st-pete",
+    name: "Sundial",
+    city: "St. Petersburg",
+    state: "FL",
+    stateName: "Florida",
+    address: "153 2nd Avenue North, St. Petersburg, FL",
+    status: "under-construction",
+    type: "Lifestyle Center",
+    tenants: [
+      "Ruth's Chris Steakhouse",
+      "Sea Salt",
+      "White House Black Market",
+      "Jackie Z Style Co.",
+      "Forbici Modern Italian",
+      "Serotonin Centers",
+    ],
+    featured: true,
+    hasPhoto: true,
+    summary:
+      "A one-of-a-kind lifestyle center in the heart of downtown St. Petersburg, under active renovation.",
+    highlights: [
+      "Sundial St. Pete is a one-of-a-kind lifestyle center in the heart of Downtown St. Petersburg.",
+      "Tenants include Ruth's Chris Steakhouse, Sea Salt, White House Black Market, and Jackie Z Style Co.",
+      "Forbici Modern Italian and Serotonin Centers have signed as new tenants.",
+      "Renovations include a new open green space for community gatherings and events.",
+    ],
+    body: [
+      "Sundial St. Pete is a one-of-a-kind lifestyle center in the heart of downtown St. Petersburg — an urban, experience-led format that operates on entirely different principles to a suburban grocery center.",
+      "The tenant roster reflects that. Ruth's Chris Steakhouse, Sea Salt, White House Black Market and Jackie Z Style Co. anchor a mix built around dwell time rather than the weekly errand, with Forbici Modern Italian and Serotonin Centers signed as new tenants.",
+      "The current renovation adds a new open green space for community gatherings and events. In a downtown lifestyle centre the public realm is the anchor — the reason people come, stay, and come back — so investment in shared space is investment in the rent roll.",
+    ],
+  },
+  {
+    slug: "clearwater-air-park",
+    name: "Clearwater Air Park",
+    city: "Clearwater",
+    state: "FL",
+    stateName: "Florida",
+    address: "1000 North Hercules Ave, Clearwater, FL",
+    status: "in-development",
+    type: "Aviation",
+    tenants: ["FlyUSA-PV"],
+    hasPhoto: true,
+    summary:
+      "A general aviation airpark in Pinellas County, operated by FlyUSA-PV and serving private jet charter.",
+    highlights: [
+      "Operated by FlyUSA-PV.",
+      "Clearwater Airpark (KCLW) serves private jet charters and private aviation in Pinellas County.",
+      "The airport's elevation makes it the only airport in Pinellas County that is not in a flood zone.",
+    ],
+    body: [
+      "Clearwater Air Park (KCLW) on North Hercules Avenue is a general aviation facility operated by FlyUSA-PV, serving private jet charter and private aviation across Pinellas County.",
+      "Its elevation gives it a genuinely rare characteristic for the Florida Gulf Coast: it is the only airport in Pinellas County that does not sit in a flood zone. In a market where storm exposure increasingly drives insurance and operating cost, that is a durable structural advantage rather than a marketing line.",
+      "The asset also demonstrates that the firm's capability is not confined to retail. The underwriting discipline — read the trade area, control an asset others cannot easily replicate, then operate it properly — transfers.",
+    ],
+  },
+
+  /* ---------------------------------------------------------------- */
+  /* Completed                                                         */
+  /* ---------------------------------------------------------------- */
+  {
+    slug: "east-bay",
+    name: "East Bay",
+    city: "Largo",
+    state: "FL",
+    stateName: "Florida",
+    address: "E Bay Dr & US 19, Largo, FL",
+    status: "completed",
+    type: "Net-Leased Retail",
+    acreage: 4.34,
+    tenants: ["Raising Cane's", "The Habit Burger Grill", "Fifth Third Bank"],
+    featured: true,
+    hasPhoto: true,
+    gallery: [
+      "/images/projects/east-bay-2.jpg",
+      "/images/projects/east-bay-3.jpg",
+    ],
+    summary:
+      "A 4.34-acre net-leased development at East Bay Drive and US 19, one of Pinellas County's highest-traffic intersections.",
+    highlights: [
+      "Tenants include Raising Cane's, The Habit Burger Grill, and Fifth Third Bank.",
+      "4.34 acres with excellent visibility on East Bay Dr (54,500 AADT) 0.40 miles from US 19 (87,500 AADT).",
+      "Located across from redeveloped Tri-City Plaza.",
+      "Excellent access from multiple points on East Bay Dr.",
+    ],
+    body: [
+      "East Bay is a 4.34-acre net-leased development at East Bay Drive and US 19 in Largo, tenanted by Raising Cane's, The Habit Burger Grill and Fifth Third Bank.",
+      "The traffic counts explain the tenant mix. East Bay Drive carries 54,500 vehicles a day at the site, and US 19 — four tenths of a mile away — carries 87,500. Quick-service restaurant and banking users pay a premium for exactly this profile: high volume, direct frontage, and their own access.",
+      "Access is the other half of it. The site takes traffic from multiple points along East Bay Drive rather than funnelling everything through a single curb cut, which is what makes a drive-through user's stacking work at peak. It sits across from the redeveloped Tri-City Plaza, in a corridor that has drawn sustained reinvestment.",
+    ],
+  },
   {
     slug: "edgewater-commons",
     name: "Edgewater Commons",
@@ -98,7 +239,6 @@ export const projects: Project[] = [
       "Sawgrass Center opened in 1999 in Broward County, in a submarket defined by high household density and intense competition for well-located corners. Sites like this one reward developers who can move quickly through entitlement and hold a defensible position on access and visibility.",
       "The project demonstrates Paradise's capacity to deliver in mature, fully built-out South Florida markets — where the work is less about greenfield land and more about assembly, entitlement, and precise site engineering.",
     ],
-    featured: true,
   },
   {
     slug: "northlake-promenade-shoppes",
@@ -233,7 +373,6 @@ export const projects: Project[] = [
       "Plaza del Paraiso opened in 2003 in Miami, an infill development in one of the most competitive retail markets in the country. Miami-Dade sites demand a different playbook: land is constrained, entitlement is intricate, and parking ratios are fought for rather than assumed.",
       "The project stands as evidence that the firm's development capability is not limited to greenfield suburban corners.",
     ],
-    featured: true,
   },
   {
     slug: "paradise-place",
@@ -251,7 +390,6 @@ export const projects: Project[] = [
       "Paradise Place opened in 2003 in West Palm Beach. The center was subsequently acquired by institutional retail investors — a common outcome for well-located, well-tenanted grocery-anchored assets, and a validation of the underwriting that produced it.",
       "Development is only half the discipline. Building an asset that institutional capital wants to own is the other half, and it is decided years earlier, at site selection.",
     ],
-    featured: true,
   },
   {
     slug: "shoppes-of-lithia",

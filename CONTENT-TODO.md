@@ -9,24 +9,37 @@ These are the items that would take it from accurate to authoritative.
 
 ---
 
-## 1. Photography — highest impact
+## 1. Photography — partly done
 
-The site currently renders a generated abstract site plan for every project
-(`src/components/SiteVisual.tsx`). It looks intentional and is unique per
-project, but real photography of the centers would materially raise the site.
+Real photography is now live for Keene Plaza, Sundial, Clearwater Air Park and
+East Bay, plus the homepage hero. Everything else still renders the generated
+site plan (`src/components/SiteVisual.tsx`), which is unique per project and
+looks deliberate — but photography beats it every time.
 
-**What to supply:** aerial or ground photography of the centers, ideally
-1600×1000 or larger, plus one wide image for the homepage hero.
+**To add a photo to any remaining project:**
 
-**How to add it:**
+1. Save it as `public/images/projects/<slug>.jpg`, matching the project's slug.
+2. Set `hasPhoto: true` on that project in `src/data/projects.ts`.
 
-1. Drop files in `public/images/projects/<slug>.jpg` matching the project slug.
-2. Add `hasPhoto: true` to that project in `src/data/projects.ts`.
-3. In `src/components/ProjectCard.tsx` and `src/app/portfolio/[slug]/page.tsx`,
-   render `next/image` when `hasPhoto` is set and fall back to `SiteVisual`
-   otherwise.
+That is the whole change — `ProjectImage` swaps the generated plan for the
+photo automatically. Extra views go in `gallery: [...]` and render as a grid on
+the detail page.
 
-Team headshots would slot into `public/images/team/<slug>.jpg` the same way.
+Team headshots would slot into `public/images/team/<slug>.jpg` the same way,
+once the profile components are pointed at them.
+
+### Images supplied but not yet placed
+
+Two projects have photography in the repo but no copy, so they are not in the
+portfolio yet. Send a few lines on each and they become full pages:
+
+- **Clearwater Beach garage / mixed-use** — `projects/clearwater-garage*.jpg`
+  (one of these is currently the homepage hero, `brand/hero.jpg`)
+- **695 Central, St. Petersburg** — `projects/695-central*.png`
+
+Sector photography is filed under `public/images/sectors/` (pharmacy, grocery,
+restaurant, fuel, automotive, banking, fitness) and is ready to be wired into
+the `/partners/[slug]` pages — say the word and I will.
 
 ---
 
@@ -43,15 +56,37 @@ email signatures and documents.
 
 ---
 
-## 3. Active project pipeline
+## 3. The rest of the /projects page
 
-`/portfolio/active` currently presents site criteria, what the firm is looking
-for, and target markets. It is a strong page, but it does not list live
-projects because we had no verified pipeline data.
+Three active projects (Keene Plaza, Sundial, Clearwater Air Park) and one
+completed project (East Bay) were transcribed from screenshots of the live
+`/projects` page, including their bullet copy verbatim.
 
-To add them, append entries to `src/data/projects.ts` with
-`status: "in-development"` or `"under-construction"`. They will appear at the
-top of that page automatically.
+**Two things still needed there:**
+
+- The **Completed Projects** section was cut off below East Bay — there were at
+  least two more cards that had not loaded. Send that section and I will add them.
+- Three of **Clearwater Air Park's** bullets were truncated mid-sentence in the
+  screenshot. What is on the site now is accurate but incomplete: the elevation
+  figure, the description of the charter operation, and the runway specification
+  are all missing. Worth checking against the live page before launch.
+
+## 3a. Positioning — worth a decision
+
+The projects above changed the picture of the business. The site was written
+around grocery-anchored retail, but the current pipeline includes a downtown
+lifestyle centre (Sundial), an airpark (Clearwater), a redevelopment (Keene
+Plaza) and net-leased QSR (East Bay).
+
+The homepage now says "retail and mixed-use property" rather than
+"grocery-anchored retail", and the portfolio supports several project types.
+But the deeper pages — services, insights, anchor partners — still lean heavily
+on the Publix/Walgreens grocery story.
+
+That may be exactly right, if grocery is still how the firm wants to be found.
+If the intent is to be known for the broader mix, the service pages and a couple
+of the articles should be rebalanced. Your call — tell me which way and I will
+rewrite accordingly.
 
 ---
 

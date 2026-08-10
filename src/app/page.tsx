@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 import { Section, SectionHeading, Stat, CtaBand, Reveal, ArrowLink } from "@/components/ui";
 import { ProjectCard } from "@/components/ProjectCard";
-import { SiteVisual } from "@/components/SiteVisual";
 import { JsonLd } from "@/components/JsonLd";
 
 import { site } from "@/data/site";
@@ -19,7 +19,7 @@ import { pageMeta, jsonLdGraph, faqSchema, itemListSchema } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: `Retail Real Estate Development in Florida & the Southeast`,
   description:
-    "Paradise Ventures develops, builds, leases and manages grocery-anchored retail. 5,000,000+ square feet delivered across eight states since 1988 — including 52 Publix stores and 100+ Walgreens.",
+    "Paradise Ventures develops, builds, leases and manages retail and mixed-use property across Florida and the Southeast. 5,000,000+ square feet delivered since 1988 — including 52 Publix stores and 100+ Walgreens.",
   path: "/",
   keywords: [
     "retail real estate developer Florida",
@@ -49,13 +49,16 @@ export default function HomePage() {
       {/* Hero                                                        */}
       {/* ---------------------------------------------------------- */}
       <section className="grain relative flex min-h-[88vh] items-center overflow-hidden bg-ink pb-16 pt-28 text-paper md:pt-32">
-        {/* Oversized site plan bleeding off the right edge */}
-        <div
+        {/* Full-bleed aerial, held well back so the headline stays legible */}
+        <Image
+          src="/images/brand/hero.jpg"
+          alt=""
           aria-hidden
-          className="pointer-events-none absolute -right-[14%] top-1/2 hidden w-[62%] -translate-y-1/2 opacity-[0.16] lg:block"
-        >
-          <SiteVisual seed="paradise-ventures-hero" tone="ink" className="w-full" />
-        </div>
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         {/* Plan grid */}
         <div
           aria-hidden
@@ -66,9 +69,14 @@ export default function HomePage() {
             backgroundSize: "80px 80px",
           }}
         />
+        {/* Opaque behind the copy, easing off so the aerial reads on the right. */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/45"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/40"
         />
 
         <div className="shell relative z-10">
@@ -87,9 +95,10 @@ export default function HomePage() {
 
           <Reveal delay={160}>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">
-              Paradise Ventures develops, constructs, leases and manages
-              grocery-anchored retail across the Southeast — every function held
-              in-house, from the first site visit to the day the doors open.
+              Paradise Ventures develops, constructs, leases and manages retail
+              and mixed-use property across Florida and the Southeast — every
+              function held in-house, from the first site visit to the day the
+              doors open.
             </p>
           </Reveal>
 

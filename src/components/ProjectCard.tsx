@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
-import { SiteVisual } from "./SiteVisual";
+import { ProjectImage } from "./ProjectImage";
 
 const statusLabel: Record<Project["status"], string> = {
   completed: "Completed",
@@ -16,8 +16,9 @@ export function ProjectCard({ project, priority }: { project: Project; priority?
       className="group flex flex-col border border-line bg-paper transition-all duration-500 hover:border-accent/45 hover:shadow-[0_28px_60px_-32px_rgba(14,20,29,0.3)]"
     >
       <div className="relative aspect-16/10 overflow-hidden bg-sand">
-        <SiteVisual
-          seed={project.slug}
+        <ProjectImage
+          project={project}
+          priority={priority}
           className="size-full transition-transform duration-700 ease-(--ease-out-soft) group-hover:scale-[1.04]"
         />
         {project.anchor && (

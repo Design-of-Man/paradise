@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Section, SectionHeading, CtaBand, Reveal, ArrowLink } from "@/components/ui";
 import { ProjectCard } from "@/components/ProjectCard";
-import { SiteVisual } from "@/components/SiteVisual";
+import { ProjectImage } from "@/components/ProjectImage";
 import { JsonLd } from "@/components/JsonLd";
 import { projects, getProject, relatedProjects } from "@/data/projects";
 import { markets } from "@/data/markets";
@@ -57,7 +58,9 @@ export default async function ProjectPage({
   const market = markets.find((m) => m.state === project.state);
 
   const facts: { label: string; value: string }[] = [
-    { label: "Location", value: `${project.city}, ${project.state}` },
+    ...(project.address
+      ? [{ label: "Address", value: project.address }]
+      : [{ label: "Location", value: `${project.city}, ${project.state}` }]),
     { label: "Status", value: statusLabel[project.status] },
     { label: "Type", value: project.type },
     ...(project.anchor ? [{ label: "Anchor", value: project.anchor }] : []),
@@ -122,8 +125,14 @@ export default async function ProjectPage({
           </p>
         </div>
 
-        <div className="relative aspect-21/9 w-full">
-          <SiteVisual seed={project.slug} tone="ink" className="size-full" />
+        <div className="relative aspect-21/9 w-full overflow-hidden">
+          <ProjectImage
+            project={project}
+            tone="ink"
+            priority
+            sizes="100vw"
+            className="size-full"
+          />
           <div
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-paper via-transparent to-ink/60"
@@ -181,6 +190,22 @@ export default async function ProjectPage({
 
           <Reveal delay={100}>
             <div>
+              {project.highlights && (
+                <div className="mb-12 border-l-2 border-accent bg-sand p-7 md:p-8">
+                  <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    Project Highlights
+                  </h2>
+                  <ul className="mt-5 space-y-3">
+                    {project.highlights.map((h) => (
+                      <li key={h} className="flex gap-3 text-[0.9375rem] leading-relaxed text-ink">
+                        <span aria-hidden className="mt-2.5 block size-1 shrink-0 bg-accent" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="prose-pv">
                 {project.body.map((p, i) => (
                   <p key={i} className={i === 0 ? "!text-[1.1875rem] !text-ink" : undefined}>
@@ -201,6 +226,25 @@ export default async function ProjectPage({
                       More on the {market.stateName} market
                     </ArrowLink>
                   </div>
+                </div>
+              )}
+
+              {project.gallery && project.gallery.length > 0 && (
+                <div className="mt-12 grid gap-4 sm:grid-cols-2">
+                  {project.gallery.map((src, i) => (
+                    <figure
+                      key={src}
+                      className="relative aspect-4/3 overflow-hidden border border-line bg-sand"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${project.name} — view ${i + 2}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </figure>
+                  ))}
                 </div>
               )}
 
