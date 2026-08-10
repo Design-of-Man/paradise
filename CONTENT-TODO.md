@@ -264,25 +264,40 @@ this site currently says.
 - **Social profiles on YouTube, Instagram and X** are said to exist. This site
   links only LinkedIn and Facebook. Send the URLs and they go in `site.social`.
 
-### Conflicts — nothing here was applied
+### Address — resolved
 
-Each of these contradicts data already live on this site. None has been changed,
-because both sources claim to be authoritative and only you can settle it.
+Neither candidate was right. The client confirmed the office as:
+
+**153 2nd Ave N, St. Petersburg, FL 33701**
+
+That is the Sundial building — the firm's own downtown lifestyle center, already
+in this portfolio as `sundial-st-pete`. It is applied throughout: `site.address`,
+the geo coordinates behind the `RealEstateAgent` schema, the footer, the contact
+page, the FAQ, the map link and the map embed (the last four derive from the data
+rather than repeating it).
+
+The **founding in Safety Harbor in 1988 is history and still reads that way** in
+Michael Connor's biography, the About timeline, the Florida market page and the
+FAQ. What changed is the present tense: copy that claimed the firm still works
+*from* Safety Harbor — "the same office in Safety Harbor since 1988", "within
+reach of the firm's Safety Harbor office" — was false once the address moved, so
+it now says Pinellas County or St. Petersburg as appropriate. Both towns are in
+Pinellas, so "the same market since 1988" survives intact and is still true.
+
+Please confirm the new address is byte-identical with the Google Business
+Profile, including the `2nd Ave N` abbreviation — "2nd Avenue North" and "2nd Ave
+N" are a citation mismatch even though they read the same.
+
+### Remaining conflicts — nothing here was applied
+
+Each of these still contradicts data live on this site. Only you can settle them.
 
 | Field | This site | Handoff document |
 | --- | --- | --- |
-| **Street address** | 2901 Rigsby Lane, Safety Harbor, FL 34695 | 140 Carillon Parkway, St. Petersburg, FL 33716 |
 | States active | 8 | 10 |
 | Projects delivered | 150 | 200+ |
 | Office hours | 8:30 AM – 5:00 PM | 9:00 AM – 5:00 PM ET *(marked "assumed" there)* |
 | Years in business | Computed from 1988 | Legacy copy said "over the last 35 years", which does not reconcile with a 1988 founding |
-
-The **address is the urgent one**. It is wired into the footer, the contact page,
-the `RealEstateAgent` structured data and the map link, and it carries geo
-coordinates that match Safety Harbor. Both builds state their address is
-byte-identical with the Google Business Profile, so one of them is wrong, and a
-mismatched NAP actively damages local search ranking. Confirm which is correct
-and it is a single change in `src/data/site.ts`.
 
 Phone numbers agree exactly: (727) 726-1115.
 

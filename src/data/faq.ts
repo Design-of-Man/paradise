@@ -28,7 +28,7 @@ export const faqs: FaqItem[] = [
   {
     group: "The Firm",
     q: "Where is Paradise Ventures located?",
-    a: "The office is at 2901 Rigsby Lane, Safety Harbor, Florida 34695, in the Tampa Bay area. The phone number is (727) 726-1115.",
+    a: "The office is at 153 2nd Ave N, St. Petersburg, Florida 33701, in downtown St. Petersburg. The phone number is (727) 726-1115.",
   },
   {
     group: "Development",

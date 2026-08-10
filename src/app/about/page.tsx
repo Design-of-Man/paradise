@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta({
   keywords: [
     "Paradise Ventures history",
     "Florida retail developer since 1988",
-    "commercial real estate development company Safety Harbor",
+    "commercial real estate development company St. Petersburg",
   ],
 });
 
@@ -25,7 +25,7 @@ const milestones = [
   {
     year: "1988",
     title: "The firm is founded",
-    body: "Michael P. Connor founds Paradise Development Group, Inc. in Safety Harbor, Florida — the same market the firm still operates from today.",
+    body: "Michael P. Connor founds Paradise Development Group, Inc. in Safety Harbor, Florida — Pinellas County, the same market the firm still operates from today.",
   },
   {
     year: "1992",
@@ -86,7 +86,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About the Firm"
         title="Thirty-eight years in one business, from one place."
-        lede="Paradise Ventures has developed retail from the same office in Safety Harbor, Florida since 1988 — through multiple growth cycles, two significant downturns, and the transformation of nearly every trade area we work in."
+        lede="Paradise Ventures has developed retail from the same Pinellas County market since 1988 — through multiple growth cycles, two significant downturns, and the transformation of nearly every trade area we work in. The office is now in downtown St. Petersburg, in a building the firm owns."
         trail={[
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
