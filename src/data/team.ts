@@ -12,6 +12,12 @@ export interface TeamMember {
   /** Body paragraphs for the profile page. */
   bio: string[];
   email?: string;
+  /**
+   * Set once a headshot exists at /public/images/team/<slug>.jpg.
+   * Until then `TeamPortrait` renders a monogram tile instead, so a missing
+   * file can never surface as a broken image.
+   */
+  hasPhoto?: boolean;
   education?: string[];
   affiliations?: string[];
   boards?: string[];

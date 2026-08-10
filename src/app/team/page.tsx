@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { PageHero, Section, SectionHeading, CtaBand, Reveal } from "@/components/ui";
 import { JsonLd } from "@/components/JsonLd";
+import { TeamPortrait } from "@/components/TeamPortrait";
 import { sortedTeam } from "@/data/team";
 import { site } from "@/data/site";
 import { pageMeta, jsonLdGraph, breadcrumbSchema, personSchema } from "@/lib/seo";
@@ -57,6 +58,16 @@ export default function TeamPage() {
             <Reveal key={member.slug} delay={i * 70}>
               <article className="grid gap-8 bg-paper p-8 md:grid-cols-[1fr_1.6fr] md:p-11">
                 <div>
+                  <Link
+                    href={`/team/${member.slug}`}
+                    className="relative mb-7 block aspect-4/5 max-w-[15rem] overflow-hidden border border-line bg-sand"
+                  >
+                    <TeamPortrait
+                      member={member}
+                      sizes="(max-width: 768px) 60vw, 240px"
+                      priority={i === 0}
+                    />
+                  </Link>
                   <h2 className="text-3xl">
                     <Link
                       href={`/team/${member.slug}`}

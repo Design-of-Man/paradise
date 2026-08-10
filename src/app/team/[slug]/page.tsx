@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { PageHero, Section, SectionHeading, CtaBand, Reveal } from "@/components/ui";
 import { JsonLd } from "@/components/JsonLd";
+import { TeamPortrait } from "@/components/TeamPortrait";
 import { team, getTeamMember, sortedTeam } from "@/data/team";
 import { site } from "@/data/site";
 import { pageMeta, jsonLdGraph, breadcrumbSchema, personSchema } from "@/lib/seo";
@@ -83,7 +84,15 @@ export default async function TeamMemberPage({
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="border border-line bg-sand p-8 md:p-9">
+            <aside className="border border-line bg-sand">
+              <div className="relative aspect-4/5 w-full overflow-hidden border-b border-line">
+                <TeamPortrait
+                  member={member}
+                  sizes="(max-width: 1024px) 100vw, 380px"
+                  priority
+                />
+              </div>
+              <div className="p-8 md:p-9">
               <dl className="space-y-6">
                 <div>
                   <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
@@ -173,6 +182,7 @@ export default async function TeamMemberPage({
                 <Link href="/contact" className="btn btn-primary w-full">
                   Get in touch
                 </Link>
+              </div>
               </div>
             </aside>
           </Reveal>

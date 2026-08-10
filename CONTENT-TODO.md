@@ -9,41 +9,75 @@ These are the items that would take it from accurate to authoritative.
 
 ---
 
-## 1. Photography — partly done
+## 1. Photography — the remaining gap
 
-Real photography is now live for Keene Plaza, Sundial, Clearwater Air Park and
-East Bay, plus the homepage hero. Everything else still renders the generated
-site plan (`src/components/SiteVisual.tsx`), which is unique per project and
-looks deliberate — but photography beats it every time.
+Photography is live for six projects (Keene Plaza, Sundial, Clearwater Air Park,
+East Bay, North Beach Parking Plaza, 695 Central) plus the homepage hero and the
+eight sector pages. **31 projects and all four team members are still on
+generated placeholders.**
 
-**To add a photo to any remaining project:**
+Both systems are already built and waiting. Adding an image is a two-step change
+with no layout risk, because nothing points at a file until you say it exists.
 
-1. Save it as `public/images/projects/<slug>.jpg`, matching the project's slug.
-2. Set `hasPhoto: true` on that project in `src/data/projects.ts`.
+### Team headshots — 4 needed
 
-That is the whole change — `ProjectImage` swaps the generated plan for the
-photo automatically. Extra views go in `gallery: [...]` and render as a grid on
-the detail page.
+Save each as `public/images/team/<slug>.jpg`, then set `hasPhoto: true` on that
+person in `src/data/team.ts`. Portrait crop, 4:5 ratio, 800x1000 or larger.
 
-Team headshots would slot into `public/images/team/<slug>.jpg` the same way,
-once the profile components are pointed at them.
+| File | Person |
+| --- | --- |
+| `michael-connor.jpg` | Michael P. Connor — President & CEO |
+| `chuck-ernst.jpg` | Chuck Ernst — Chief Financial Officer |
+| `brad-karns.jpg` | Brad Karns — Director of Development |
+| `jon-mott.jpg` | Jon Mott — Leasing |
 
-All supplied photography is now placed. Sector photography under
-`public/images/sectors/` is wired into the `/partners/[slug]` pages, and the
-Clearwater Beach aerial is the homepage hero.
+Until then each renders a monogram tile in a brand tint — deliberate-looking,
+and distinct per person, but no substitute for a face.
 
-**Two entries were written from press and trade coverage rather than your own
-copy, and are worth checking:**
+### Project photography — 31 needed
 
-- **North Beach Parking Plaza** (Clearwater Beach, 2016) — seven storeys, 700+
-  spaces, ~12,000 sq ft of retail, joint venture with the City of Clearwater,
-  anchored by Another Broken Egg Cafe and Alati.
-- **695 Central** (St. Petersburg) — acquired December 2019, ~8,000 sq ft of
-  restaurant space over ~8,000 sq ft of office, tenanted by Melting Pot,
-  Southern Grounds Coffee and IMAGE Studios on ten-year net leases.
+Save as `public/images/projects/<slug>.jpg` and set `hasPhoto: true` on that
+project in `src/data/projects.ts`. Landscape, 1600x1000 or larger — the six
+already in place are 1024-1920px wide and the larger ones look markedly better
+in the page heroes. Extra views go in `gallery: [...]`.
 
-Both are currently filed as **completed**. If either belongs under Active
-Development on your own site, that is a one-word change.
+```
+edgewater-commons.jpg                       Edgewater Commons — Edgewater, FL (1992)
+southpointe-commons.jpg                     Southpointe Commons — DeLand, FL (1993)
+sawgrass-center.jpg                         Sawgrass Center — Sunrise, FL (1999)
+northlake-promenade-shoppes.jpg             Northlake Promenade Shoppes — North Palm Beach, FL (2000)
+paradise-crossing.jpg                       Paradise Crossing — Douglasville, GA (2000)
+flamingo-sr-84.jpg                          Flamingo & S.R. 84 — Plantation, FL (2000)
+publix-at-laguna-isles.jpg                  Publix at Laguna Isles — Pembroke Pines, FL (2000)
+shoppes-at-paradise-pointe.jpg              Shoppes at Paradise Pointe — Fort Walton Beach, FL (2001)
+cooper-city-commons.jpg                     Cooper City Commons — Cooper City, FL (2002)
+shoppes-at-lake-dow.jpg                     The Shoppes at Lake Dow — McDonough, GA (2002)
+plaza-del-paraiso.jpg                       Plaza del Paraiso — Miami, FL (2003)
+paradise-place.jpg                          Paradise Place — West Palm Beach, FL (2003)
+shoppes-of-lithia.jpg                       Shoppes of Lithia — Brandon, FL (2003)
+paradise-promenade.jpg                      Paradise Promenade — Davie, FL (2003)
+paradise-shoppes-of-navarre.jpg             Paradise Shoppes of Navarre — Navarre, FL (2003)
+paradise-shoppes-of-ellenwood.jpg           Paradise Shoppes of Ellenwood — Ellenwood, GA (2003)
+paradise-shoppes-of-dallas.jpg              Paradise Shoppes of Dallas — Dallas, GA (2004)
+paradise-shoppes-of-prominence-point.jpg    Paradise Shoppes of Prominence Point — Canton, GA (2004)
+paradise-shoppes-of-new-hope.jpg            Paradise Shoppes of New Hope — Dallas, GA
+paradise-shoppes-of-warner-robins.jpg       Paradise Shoppes of Warner Robins — Kathleen, GA (2004)
+paradise-shoppes-of-summerville.jpg         Paradise Shoppes of Summerville — Summerville, SC (2006)
+shoppes-of-del-prado.jpg                    Shoppes of Del Prado — North Fort Myers, FL (2012)
+shoppes-of-price-crossing.jpg               Shoppes of Price Crossing — North Port, FL (2008)
+shoppes-at-glen-lakes.jpg                   Shoppes at Glen Lakes — Weeki Wachee, FL (2008)
+shoppes-of-sugarmill-woods.jpg              Shoppes of Sugarmill Woods — Homosassa, FL (2008)
+corsica-square.jpg                          Corsica Square — Miami, FL (2007)
+shoppes-of-paradise-key.jpg                 Shoppes of Paradise Key — Destin, FL (1999)
+publix-at-st-andrews.jpg                    Publix at St. Andrews — Port St. Lucie, FL (2003)
+publix-las-olas.jpg                         Publix Las Olas — Fort Lauderdale, FL (2003)
+publix-at-surfside.jpg                      Publix at Surfside — Surfside, FL (2003)
+paradise-shoppes-of-perry.jpg               Paradise Shoppes of Perry — Perry, GA
+```
+
+Anything absent keeps rendering its generated site plan, which is unique per
+project and looks intentional — so a partial delivery is fine. Send five and
+five will light up.
 
 ---
 
