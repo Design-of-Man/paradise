@@ -217,11 +217,74 @@ Kathleen even though the centre carries the Warner Robins name.
 
 Four profiles are live: Michael P. Connor, Chuck Ernst, Brad Karns and Jon Mott.
 
+**The roster is very likely incomplete.** A separate developer handoff for this
+same client describes a team hub plus **eleven biographies** — seven more than
+are on this site. Two of the missing names appear in that document: **Chris
+Zimmermann** (the legacy site spelled it both "Zimmerman" and "Zimmermann" on
+the same card; that build chose the double-n) and **Carley Melendez**. The other
+five are not named there.
+
+Nothing has been added, because a profile needs a title and a biography and
+inventing either would be worse than the gap. Send names, titles and bios and
+they slot straight into `src/data/team.ts`.
+
 Chuck Ernst's and Jon Mott's biographies are shorter than the others because
 less published detail was available. Send education, tenure and any board
 service and they will match the depth of the others.
 
-If anyone is missing from the roster, add them to `src/data/team.ts`.
+---
+
+## 5a. From the static-build handoff document
+
+A handoff for a parallel static HTML build of this same site was supplied. Its
+conventions do not transfer — different stack, different tooling — but its
+statements of fact about the business do, and several of them do not match what
+this site currently says.
+
+### Assets that already exist elsewhere
+
+- **Three client-supplied headshots are already cropped and installed** in that
+  build: Michael Connor, Chuck Ernst and Jon Mott, at 600×750 with WebP
+  alongside. Dropping those three files into `public/images/team/` and setting
+  `hasPhoto: true` finishes three of the four portraits immediately. That
+  document also notes Ernst's source is 754×691 and soft, and recommends
+  reshooting all eleven against a single backdrop.
+- **A portfolio archive of 200+ completed projects**, each with location, anchor
+  tenants, gross leasable area and opening year, is said to be reproduced in that
+  package's `docs/01-audit.md`. This site currently carries 31 completed centres.
+  **That one file is the highest-value thing outstanding on this project** — it
+  would both resolve the verification gap in section 3 and multiply the portfolio
+  roughly sixfold.
+- **Five "Available Properties" listings** are named: Sundial, Old Cypress Creek,
+  Keene Plaza, 7405 Seminole Blvd and 3711 Tampa Rd. Sundial and Keene Plaza are
+  already here, which makes **Old Cypress Creek, 7405 Seminole Blvd and 3711
+  Tampa Rd** the likely identities of the two active-project cards that had not
+  loaded in the original `/projects` screenshot (see section 3). Confirm which
+  two, with city and status, and they can be added.
+- **Social profiles on YouTube, Instagram and X** are said to exist. This site
+  links only LinkedIn and Facebook. Send the URLs and they go in `site.social`.
+
+### Conflicts — nothing here was applied
+
+Each of these contradicts data already live on this site. None has been changed,
+because both sources claim to be authoritative and only you can settle it.
+
+| Field | This site | Handoff document |
+| --- | --- | --- |
+| **Street address** | 2901 Rigsby Lane, Safety Harbor, FL 34695 | 140 Carillon Parkway, St. Petersburg, FL 33716 |
+| States active | 8 | 10 |
+| Projects delivered | 150 | 200+ |
+| Office hours | 8:30 AM – 5:00 PM | 9:00 AM – 5:00 PM ET *(marked "assumed" there)* |
+| Years in business | Computed from 1988 | Legacy copy said "over the last 35 years", which does not reconcile with a 1988 founding |
+
+The **address is the urgent one**. It is wired into the footer, the contact page,
+the `RealEstateAgent` structured data and the map link, and it carries geo
+coordinates that match Safety Harbor. Both builds state their address is
+byte-identical with the Google Business Profile, so one of them is wrong, and a
+mismatched NAP actively damages local search ranking. Confirm which is correct
+and it is a single change in `src/data/site.ts`.
+
+Phone numbers agree exactly: (727) 726-1115.
 
 ---
 

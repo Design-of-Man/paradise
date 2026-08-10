@@ -134,13 +134,27 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-line-dark pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {site.legalName}. All rights reserved.
-          </p>
-          <p className="sm:text-right">
-            {addressOneLine} · Serving Florida, Georgia and the Southeast since{" "}
-            {site.founded}.
+        <div className="mt-12 border-t border-line-dark pt-8 text-xs text-white/40">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {year} {site.legalName}. All rights reserved.
+            </p>
+            <p className="sm:text-right">
+              {addressOneLine} · Serving Florida, Georgia and the Southeast since{" "}
+              {site.founded}.
+            </p>
+          </div>
+          {/*
+           * Retailer names appear throughout the portfolio as a record of work
+           * delivered. Publix and Walgreens both publish trademark usage policies,
+           * so the brands are named as text only — never as logo artwork — and
+           * ownership is disclaimed here rather than implied.
+           */}
+          <p className="mt-4 max-w-4xl text-white/30">
+            Publix, Walgreens, Sprouts Farmers Market and all other retailer and
+            tenant names are the trademarks of their respective owners. They appear
+            here to describe centers Paradise Ventures has developed, leased or
+            manages, and do not imply endorsement, sponsorship or affiliation.
           </p>
         </div>
       </div>
