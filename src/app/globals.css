@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                       */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Palette — architectural ink and warm paper, accented with the brand
+     greens and blue taken from the Paradise Ventures sail mark. */
+  --color-ink: #0e141d;
+  --color-ink-700: #1a2331;
+  --color-ink-600: #27313f;
+  --color-ink-500: #3d4857;
+  --color-slate-tone: #5d6875;
+  --color-mute: #8a929d;
+
+  --color-paper: #fbfaf7;
+  --color-sand: #f2eee6;
+  --color-sand-deep: #e5dfd2;
+
+  /* Brand greens, from the logo. `accent` is darkened from the logo green so
+     that accent-on-paper text clears WCAG AA (4.8:1); `accent-bright` is the
+     logo green itself, used for fills and for text on ink (8.4:1). */
+  --color-accent: #4e7a21;
+  --color-accent-bright: #8cc63f;
+  --color-accent-pale: #c6dd97;
+
+  /* Literal mark colours, used by the logo and site-plan artwork. */
+  --color-leaf: #8cc63f;
+  --color-leaf-light: #afcf63;
+  --color-sky: #4a90c4;
+  --color-sky-deep: #2f6c96;
+
+  --color-forest: #17352a;
+
+  --color-line: #e2ddd2;
+  --color-line-dark: rgba(255, 255, 255, 0.12);
+
+  /* Type */
+  --font-display: var(--font-display-family), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Fluid display sizes */
+  --text-display-sm: clamp(1.9rem, 1.4rem + 2vw, 2.9rem);
+  --text-display: clamp(2.4rem, 1.5rem + 3.6vw, 4.4rem);
+  --text-display-lg: clamp(2.4rem, 1.4rem + 3.4vw, 4.25rem);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --spacing-gutter: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Keep anchored headings clear of the sticky header. */
+  :target {
+    scroll-margin-top: 7rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .shell-narrow {
+    width: 100%;
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  /* Small uppercase label used above section headings. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+
+  .eyebrow-center::before {
+    display: none;
+  }
+
+  /* Editorial body copy. */
+  .prose-pv p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-ink-500);
+  }
+
+  .prose-pv p + p {
+    margin-top: 1.25rem;
+  }
+
+  .prose-pv h2 {
+    font-size: 1.6rem;
+    margin-top: 2.75rem;
+    margin-bottom: 0.9rem;
+    color: var(--color-ink);
+  }
+
+  .prose-pv > *:first-child {
+    margin-top: 0;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.9rem 1.6rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 2px;
+    transition:
+      background-color 0.25s var(--ease-out-soft),
+      color 0.25s var(--ease-out-soft),
+      border-color 0.25s var(--ease-out-soft),
+      transform 0.25s var(--ease-out-soft);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent);
+  }
+
+  .btn-accent {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .btn-accent:hover {
+    background: var(--color-ink);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  .btn-on-dark {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+  }
+
+  .btn-on-dark:hover {
+    background: #fff;
+    color: var(--color-ink);
+    border-color: #fff;
+  }
+
+  /* Link that reveals an underline from the left. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-out-soft);
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .hairline {
+    border-top: 1px solid var(--color-line);
+  }
+
+  /* Fine paper grain, layered over dark sections for depth. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Tabular figures keep stat rows and tables from shifting. */
+  .nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scroll-triggered reveal. Elements start hidden only when JS is able to
+     un-hide them — `.js-reveal` is added to <html> by the observer script,
+     so no-JS visitors see fully rendered content. */
+  .js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.8s var(--ease-out-soft),
+      transform 0.8s var(--ease-out-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal .reveal,
+    .js-reveal .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
