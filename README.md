@@ -28,8 +28,17 @@ Node 20+ recommended.
 
 ## Deploying to Vercel
 
-Import the repository at [vercel.com/new](https://vercel.com/new). Everything is
-detected automatically — no `vercel.json` and no build configuration needed.
+Already connected. The repository is linked to the `paradise` project on the
+**The Design of Man** team, with **`main`** as the production branch — every
+push to `main` ships to production automatically.
+
+- Production: <https://paradise-sandy.vercel.app>
+- Preview: every other branch gets its own URL
+
+Nothing needs configuring: there is no `vercel.json`, and the framework, build
+command and output directory are all detected. Auto-assign Custom Production
+Domains is on, so `paradiseventuresinc.com` will attach to production deploys
+as soon as it is added under Project → Domains.
 
 ### Environment variables
 
