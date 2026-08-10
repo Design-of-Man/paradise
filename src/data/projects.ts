@@ -147,13 +147,14 @@ export const projects: Project[] = [
     summary:
       "A general aviation airpark in Pinellas County, operated by FlyUSA-PV and serving private jet charter.",
     highlights: [
-      "Operated by FlyUSA-PV.",
+      "Operated by FlyUSA-PV, the joint venture between Paradise Ventures and FlyUSA — a full-service private aviation firm specializing in on-demand charter across Florida and the Southeast.",
       "Clearwater Airpark (KCLW) serves private jet charters and private aviation in Pinellas County.",
-      "The airport's elevation makes it the only airport in Pinellas County that is not in a flood zone.",
+      "At 71 feet above sea level, it is the only airport in Pinellas County that is not in a flood zone.",
+      "A 47-acre site with a single asphalt runway, 16/34, measuring 4,108 by 75 feet.",
     ],
     body: [
       "Clearwater Air Park (KCLW) on North Hercules Avenue is a general aviation facility operated by FlyUSA-PV, serving private jet charter and private aviation across Pinellas County.",
-      "Its elevation gives it a genuinely rare characteristic for the Florida Gulf Coast: it is the only airport in Pinellas County that does not sit in a flood zone. In a market where storm exposure increasingly drives insurance and operating cost, that is a durable structural advantage rather than a marketing line.",
+      "The site runs to 47 acres with a single asphalt runway — 16/34, 4,108 feet by 75 — and sits 71 feet above sea level. That last figure gives it a genuinely rare characteristic for the Florida Gulf Coast: it is the only airport in Pinellas County that does not sit in a flood zone. In a market where storm exposure increasingly drives insurance and operating cost, that is a durable structural advantage rather than a marketing line.",
       "The asset also demonstrates that the firm's capability is not confined to retail. The underwriting discipline — read the trade area, control an asset others cannot easily replicate, then operate it properly — transfers.",
     ],
   },
@@ -203,6 +204,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Walgreens", "Blockbuster", "Burger King"],
     summary:
       "One of the earliest Paradise centers, anchoring a growing stretch of Florida's east coast.",
     body: [
@@ -220,6 +222,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Walgreens", "Checkers"],
     summary:
       "A Publix-anchored neighborhood center serving DeLand and western Volusia County.",
     body: [
@@ -380,6 +383,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Exxon"],
     summary: "An infill Miami-Dade center serving a dense urban trade area.",
     body: [
       "Plaza del Paraiso opened in 2003 in Miami, an infill development in one of the most competitive retail markets in the country. Miami-Dade sites demand a different playbook: land is constrained, entitlement is intricate, and parking ratios are fought for rather than assumed.",
