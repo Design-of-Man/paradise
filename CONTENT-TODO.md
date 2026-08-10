@@ -333,8 +333,48 @@ go stale.
       silently dropped — it just arrives as an email the sender has to press send
       on, which some won't.
 - [ ] Point the domain at Vercel and confirm `NEXT_PUBLIC_SITE_URL` matches it.
+      Every canonical, the sitemap, the feed and `llms.txt` are all built from
+      this one value, so a wrong domain here is wrong in eighty places at once.
 - [ ] Submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+      Bing Webmaster Tools can import the Search Console property directly, which
+      is faster than verifying twice.
+- [ ] **Enable IndexNow** in Bing Webmaster Tools. It pushes new and changed URLs
+      to Bing and Yandex within minutes instead of waiting for a recrawl, and it
+      is the single cheapest indexing win available. It needs a key file hosted at
+      the domain root — generate the key in Bing Webmaster Tools, then it can be
+      added to the repository in one commit.
+- [ ] Validate the structured data in Google's Rich Results Test and Schema.org's
+      validator — `Organization`/`RealEstateAgent`, `BreadcrumbList`, `FAQPage`,
+      `Person`, `Service`, `Article` and `ItemList` all ship, and a single
+      malformed field silences the lot for that page.
 - [ ] Confirm the Google Business Profile address and phone match `src/data/site.ts` byte for byte.
 - [ ] Have the client read `/privacy` and `/accessibility` — both are sensible
       defaults, not legal advice, and should be reviewed before publication.
 - [ ] Spot-check the 301s from the old WordPress URLs after DNS cuts over.
+
+### What the site already does for discovery
+
+Nothing below needs action — it is here so the next person does not rebuild it.
+
+- **Every page** carries a canonical, an Open Graph card, a Twitter card and
+  explicit robots directives, because all metadata routes through `pageMeta()`
+  in `src/lib/seo.ts`. A page physically cannot ship without them.
+- **`max-image-preview:large` and `max-snippet:-1`** are set on the generic
+  robots directive as well as the Googlebot one, so Bing and the answer engines
+  get full-length snippets and large thumbnails rather than truncated ones.
+- **`/robots.txt`** names twenty-two crawlers. Because a crawler obeys only the
+  most specific group that matches it, each is listed with its own `/api/`
+  exclusion rather than inheriting the wildcard's. The answer engines are
+  allowed deliberately — including the three-way split OpenAI and Anthropic both
+  use, where the training crawler, the search index and the user-initiated fetch
+  are separate agents and blocking the wrong one removes the firm from results.
+- **`/llms.txt`** states what the firm is, what it has built, where, and how to
+  reach it, with links into the detail pages. It is generated from the same data
+  the site renders, so it cannot drift. This is what an answer engine reads when
+  someone asks it about Paradise Ventures.
+- **`/insights/feed.xml`** is a full-content RSS 2.0 feed, advertised in the
+  `<head>` of every page.
+- **`/sitemap.xml`** covers all eighty indexable pages and is generated from the
+  data, so a new project cannot exist without appearing in it. `lastmod` appears
+  only on the articles, which have real dates — stamping the build time on every
+  URL is a signal search engines learn to ignore.

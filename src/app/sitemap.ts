@@ -11,9 +11,16 @@ import { insights } from "@/data/insights";
  * Every indexable route, generated from the same data that renders the pages —
  * so a new project or article cannot be added without appearing in the sitemap.
  */
+/**
+ * `lastModified` is deliberately absent from everything except the articles.
+ *
+ * Stamping every URL with the build time told search engines that all eighty
+ * pages changed on every deploy, which is untrue and teaches a crawler to
+ * disregard the field entirely — Google's own guidance is to omit it rather
+ * than supply one it cannot trust. The articles carry real publication dates,
+ * so those keep theirs and stay meaningful.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const staticRoutes: { path: string; priority: number; freq: MetadataRoute.Sitemap[0]["changeFrequency"] }[] = [
     { path: "/", priority: 1, freq: "weekly" },
     { path: "/about", priority: 0.9, freq: "monthly" },
@@ -36,37 +43,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes.map((r) => ({
       url: `${BASE_URL}${r.path}`,
-      lastModified: now,
       changeFrequency: r.freq,
       priority: r.priority,
     })),
     ...services.map((s) => ({
       url: `${BASE_URL}/services/${s.slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     ...projects.map((p) => ({
       url: `${BASE_URL}/portfolio/${p.slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...markets.map((m) => ({
       url: `${BASE_URL}/markets/${m.slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...partners.map((p) => ({
       url: `${BASE_URL}/partners/${p.slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     ...team.map((t) => ({
       url: `${BASE_URL}/team/${t.slug}`,
-      lastModified: now,
       changeFrequency: "yearly" as const,
       priority: 0.5,
     })),

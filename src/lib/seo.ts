@@ -52,12 +52,26 @@ export function pageMeta({
     title,
     description,
     keywords,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // Advertised on every page, not just /insights. Readers, aggregators and
+      // Bing's discovery all look for the feed link in <head> wherever they
+      // happen to land, and the feed is the only route on the site that
+      // announces new content without waiting for a recrawl.
+      types: { "application/rss+xml": [{ url: absolute("/insights/feed.xml"), title: `${site.name} — Insights` }] },
+    },
     robots: noIndex
       ? { index: false, follow: false }
       : {
           index: true,
           follow: true,
+          // These also belong on the generic directive, not only under
+          // googleBot: Bing, DuckDuckGo and the answer engines read
+          // `<meta name="robots">` and would otherwise fall back to a truncated
+          // snippet and a thumbnail-sized image.
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
           googleBot: {
             index: true,
             follow: true,
@@ -106,7 +120,29 @@ export function organizationSchema() {
     foundingDate: String(site.founded),
     slogan: site.tagline,
     telephone: site.phone,
+    faxNumber: site.fax,
     email: site.email,
+    // Separating leasing from general enquiries gives an answer engine the
+    // right address to quote when someone asks about space rather than about
+    // the firm, which is the more common high-intent question.
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        telephone: site.phone,
+        email: site.email,
+        areaServed: "US",
+        availableLanguage: "English",
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "leasing",
+        telephone: site.phone,
+        email: site.leasingEmail,
+        areaServed: "US",
+        availableLanguage: "English",
+      },
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
