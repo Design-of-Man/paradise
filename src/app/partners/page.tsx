@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { PageHero, Section, SectionHeading, CtaBand, Reveal } from "@/components/ui";
@@ -9,7 +10,7 @@ import { pageMeta, jsonLdGraph, breadcrumbSchema, itemListSchema } from "@/lib/s
 export const metadata: Metadata = pageMeta({
   title: "Anchor Partners & Sectors",
   description:
-    "One of the nation's leading developers of Publix shopping centers and Walgreens stores — plus grocery, pharmacy, restaurant, fuel and banking development across the Southeast.",
+    "One of the nation's leading developers of Publix shopping centers and Walgreens stores — plus grocery, pharmacy, restaurant, fuel, banking, fitness and automotive development across the Southeast.",
   path: "/partners",
   keywords: [
     "Publix shopping center developer",
@@ -62,6 +63,17 @@ export default function PartnersPage() {
                   </h2>
                   {partner.delivered && (
                     <p className="mt-3 text-sm font-medium text-ink-500">{partner.delivered}</p>
+                  )}
+                  {partner.image && (
+                    <div className="relative mt-6 aspect-4/3 overflow-hidden border border-line bg-sand">
+                      <Image
+                        src={partner.image}
+                        alt={`${partner.imageSubject ?? partner.name} developed by Paradise Ventures`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="object-cover transition-transform duration-700 ease-(--ease-out-soft) group-hover:scale-[1.04]"
+                      />
+                    </div>
                   )}
                 </div>
 

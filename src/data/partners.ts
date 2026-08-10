@@ -13,6 +13,18 @@ export interface Partner {
   delivered?: string;
   summary: string;
   body: string[];
+  /**
+   * Lead photograph, as a path under /public.
+   *
+   * Only ever point this at a building the firm actually developed for the
+   * subject of the page — a photo of one retailer under another retailer's
+   * heading misrepresents the work, however similar the formats look.
+   */
+  image?: string;
+  /** Supporting photography, rendered as a gallery below the body. */
+  gallery?: string[];
+  /** Alt-text subject for the lead image, when it differs from the page name. */
+  imageSubject?: string;
   order: number;
 }
 
@@ -37,6 +49,9 @@ export const partners: Partner[] = [
     name: "Walgreens",
     category: "Pharmacy",
     delivered: "100+ stores across eight states",
+    image: "/images/sectors/pharmacy.jpg",
+    imageSubject: "A completed Walgreens store",
+    gallery: ["/images/sectors/pharmacy-2.jpg"],
     summary:
       "More than one hundred Walgreens stores completed across eight states as a national build-to-suit developer.",
     body: [
@@ -50,6 +65,8 @@ export const partners: Partner[] = [
     slug: "grocery",
     name: "Grocery",
     category: "Sector",
+    image: "/images/sectors/grocery.jpg",
+    imageSubject: "A completed Aldi store",
     summary:
       "Grocery-anchored neighborhood centers — the most durable format in retail real estate.",
     body: [
@@ -63,6 +80,9 @@ export const partners: Partner[] = [
     slug: "pharmacy",
     name: "Pharmacy",
     category: "Sector",
+    image: "/images/sectors/pharmacy-2.jpg",
+    imageSubject: "A completed Walgreens store",
+    gallery: ["/images/sectors/pharmacy.jpg"],
     summary:
       "Freestanding drugstore development at signalized hard corners nationwide.",
     body: [
@@ -76,6 +96,15 @@ export const partners: Partner[] = [
     slug: "restaurant-and-fuel",
     name: "Restaurant & Fuel",
     category: "Sector",
+    image: "/images/sectors/restaurant.jpg",
+    imageSubject: "A completed Starbucks outparcel",
+    gallery: [
+      "/images/sectors/fuel.jpg",
+      "/images/sectors/restaurant-3.jpg",
+      "/images/sectors/fuel-3.jpg",
+      "/images/sectors/restaurant-2.jpg",
+      "/images/sectors/fuel-6.jpg",
+    ],
     summary:
       "Outparcel development for quick-service restaurant, convenience and fuel users.",
     body: [
@@ -89,6 +118,8 @@ export const partners: Partner[] = [
     slug: "banking",
     name: "Banking",
     category: "Sector",
+    image: "/images/sectors/banking.jpg",
+    imageSubject: "A completed Regions Bank branch",
     summary:
       "Branch and outparcel development for retail banking users.",
     body: [
@@ -96,6 +127,44 @@ export const partners: Partner[] = [
       "Branch site criteria overlap closely with pharmacy: signalized corners, strong visibility, easy in-and-out access, and drive-through circulation. The overlap is useful — corners that qualify for one user frequently qualify for the other, which widens the field of viable outcomes for a site the firm already controls.",
     ],
     order: 6,
+  },
+  {
+    slug: "fitness",
+    name: "Fitness",
+    category: "Sector",
+    image: "/images/sectors/fitness.jpg",
+    imageSubject: "A completed Crunch Fitness building",
+    gallery: [
+      "/images/sectors/fitness-2.jpg",
+      "/images/sectors/fitness-3.jpg",
+      "/images/sectors/fitness-5.jpg",
+      "/images/sectors/fitness-4.jpg",
+      "/images/sectors/fitness-6.jpg",
+    ],
+    summary:
+      "Big-box fitness development, including a multi-site Crunch Fitness programme.",
+    body: [
+      "Fitness has become one of the most reliable backfill and anchor uses in retail real estate, and Paradise has delivered a series of Crunch Fitness buildings across Florida.",
+      "The format asks different questions of a site than a grocery store does. A gym draws its heaviest traffic at the shoulders of the day — early morning and after work — which means it layers onto a center's demand curve rather than competing with it. Parking that would be strained by a simultaneous grocery peak is comfortable when the two uses trade at different hours.",
+      "The building itself is demanding in ways that are easy to underestimate: clear heights for equipment and studio space, structural allowance for free-weight loading, substantial HVAC capacity, and plumbing runs for locker rooms that have to be planned before the slab is poured, not after.",
+    ],
+    order: 7,
+  },
+  {
+    slug: "automotive",
+    name: "Automotive",
+    category: "Sector",
+    image: "/images/sectors/automotive.jpg",
+    imageSubject: "A completed Take 5 Oil Change building",
+    gallery: ["/images/sectors/automotive-2.jpg"],
+    summary:
+      "Quick-service automotive development on high-visibility outparcels.",
+    body: [
+      "Quick-service automotive — oil change, car wash and tyre users — has grown into a strong outparcel category, and Paradise has delivered Take 5 Oil Change buildings on high-traffic corridors.",
+      "The site logic is close to that of a drive-through restaurant. These users need arterial visibility, easy in-and-out access, and enough depth for vehicles to stack without spilling into a shared drive aisle. The difference is dwell: a service bay holds a vehicle for longer than a pick-up window does, so the stacking calculation is less about peak throughput and more about queue length at the busiest hour.",
+      "As with any pad user, the value is created at site plan stage. Circulation and access are fixed at entitlement, and no amount of leasing effort recovers a pad that was laid out badly.",
+    ],
+    order: 8,
   },
 ];
 

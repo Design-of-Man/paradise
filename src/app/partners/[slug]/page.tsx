@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -78,15 +79,35 @@ export default async function PartnerPage({
         trail={trail}
       />
 
+      {partner.image && (
+        <div className="relative aspect-21/9 w-full overflow-hidden bg-sand">
+          <Image
+            src={partner.image}
+            alt={`${partner.imageSubject ?? partner.name} developed by Paradise Ventures`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-paper via-transparent to-ink/45"
+          />
+        </div>
+      )}
+
       <Section>
         <div className="shell grid gap-14 lg:grid-cols-[1.35fr_1fr] lg:gap-20">
           <Reveal>
-            <div className="prose-pv">
-              {partner.body.map((p, i) => (
-                <p key={i} className={i === 0 ? "!text-[1.1875rem] !text-ink" : undefined}>
-                  {p}
-                </p>
-              ))}
+            <div>
+              <div className="prose-pv">
+                {partner.body.map((p, i) => (
+                  <p key={i} className={i === 0 ? "!text-[1.1875rem] !text-ink" : undefined}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+
             </div>
           </Reveal>
 
@@ -143,6 +164,34 @@ export default async function PartnerPage({
         </div>
       </Section>
 
+      {partner.gallery && partner.gallery.length > 0 && (
+        <Section tone="sand">
+          <div className="shell">
+            <Reveal>
+              <SectionHeading
+                eyebrow="Delivered"
+                title={`${partner.name} projects we have built.`}
+              />
+            </Reveal>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {partner.gallery.map((src, i) => (
+                <Reveal key={src} delay={(i % 3) * 70}>
+                  <figure className="relative aspect-4/3 overflow-hidden border border-line bg-paper">
+                    <Image
+                      src={src}
+                      alt={`${partner.name} development by Paradise Ventures — view ${i + 2}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
       {related.length > 0 && (
         <Section tone="sand">
           <div className="shell">
@@ -172,7 +221,7 @@ export default async function PartnerPage({
           <Reveal>
             <SectionHeading eyebrow="Also" title="Other anchors and sectors." />
           </Reveal>
-          <div className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
             {others.map((p) => (
               <Link
                 key={p.slug}
