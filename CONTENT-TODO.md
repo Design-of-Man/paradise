@@ -58,14 +58,17 @@ email signatures and documents.
 
 ## 3. The rest of the /projects page
 
-Three active projects (Keene Plaza, Sundial, Clearwater Air Park) and one
-completed project (East Bay) were transcribed from screenshots of the live
-`/projects` page, including their bullet copy verbatim.
+Four active projects — Keene Plaza, Sundial, Clearwater Air Park and East Bay —
+were transcribed from screenshots of the live `/projects` page, including their
+bullet copy verbatim.
 
 **Two things still needed there:**
 
-- The **Completed Projects** section was cut off below East Bay — there were at
-  least two more cards that had not loaded. Send that section and I will add them.
+- **No Completed Projects have been captured at all.** East Bay was initially
+  filed as completed by misreading the section break; it sits above the
+  "Completed Projects" heading and is active. Everything below that heading is
+  still missing. Two further cards sat in East Bay's row and had not loaded when
+  the screenshot was taken — those are likely active too.
 - Three of **Clearwater Air Park's** bullets were truncated mid-sentence in the
   screenshot. What is on the site now is accurate but incomplete: the elevation
   figure, the description of the charter operation, and the runway specification

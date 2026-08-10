@@ -155,9 +155,6 @@ export const projects: Project[] = [
     ],
   },
 
-  /* ---------------------------------------------------------------- */
-  /* Completed                                                         */
-  /* ---------------------------------------------------------------- */
   {
     slug: "east-bay",
     name: "East Bay",
@@ -165,7 +162,7 @@ export const projects: Project[] = [
     state: "FL",
     stateName: "Florida",
     address: "E Bay Dr & US 19, Largo, FL",
-    status: "completed",
+    status: "under-construction",
     type: "Net-Leased Retail",
     acreage: 4.34,
     tenants: ["Raising Cane's", "The Habit Burger Grill", "Fifth Third Bank"],
@@ -189,6 +186,10 @@ export const projects: Project[] = [
       "Access is the other half of it. The site takes traffic from multiple points along East Bay Drive rather than funnelling everything through a single curb cut, which is what makes a drive-through user's stacking work at peak. It sits across from the redeveloped Tri-City Plaza, in a corridor that has drawn sustained reinvestment.",
     ],
   },
+
+  /* ---------------------------------------------------------------- */
+  /* Completed                                                         */
+  /* ---------------------------------------------------------------- */
   {
     slug: "edgewater-commons",
     name: "Edgewater Commons",
