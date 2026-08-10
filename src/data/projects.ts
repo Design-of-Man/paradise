@@ -423,7 +423,7 @@ export const projects: Project[] = [
       "A Hillsborough County center in the firm's own Tampa Bay backyard.",
     body: [
       "Shoppes of Lithia opened in 2003 in the Brandon–FishHawk corridor of Hillsborough County, one of Tampa Bay's most active residential growth areas through the 2000s.",
-      "Tampa Bay is home. The firm has operated from Safety Harbor since 1988, and the local market knowledge that comes from three decades in one place is difficult to replicate from a distance.",
+      "Tampa Bay is home. The firm has worked this market since 1988 — from Safety Harbor originally, from downtown St. Petersburg today — and the local knowledge that comes from three decades in one place is difficult to replicate from a distance.",
     ],
   },
   {
@@ -621,7 +621,7 @@ export const projects: Project[] = [
     body: [
       "Shoppes at Glen Lakes opened in 2008 in Weeki Wachee, on Florida's Nature Coast in Hernando County, anchored by Publix with a SunTrust Bank branch.",
       "Hernando County absorbed substantial residential growth as households moved north out of the Tampa Bay metro in search of land and lower cost. Retail supply lagged that movement by years, which is precisely the gap the firm looks for.",
-      "The center sits within reach of the firm's Safety Harbor office — close enough that the trade area was understood first-hand rather than from a report.",
+      "The center sits within reach of the firm's Pinellas County office — close enough that the trade area was understood first-hand rather than from a report.",
     ],
   },
   {

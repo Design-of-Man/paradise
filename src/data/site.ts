@@ -21,15 +21,24 @@ export const site = {
   email: "info@paradiseventuresinc.com",
   leasingEmail: "leasing@paradiseventuresinc.com",
   address: {
-    street: "2901 Rigsby Lane",
-    city: "Safety Harbor",
+    /**
+     * Client-confirmed August 2026. This is the Sundial building on 2nd Avenue
+     * North — the firm's own downtown St. Petersburg lifestyle center, which is
+     * also in the portfolio as `sundial-st-pete`.
+     *
+     * The firm was founded in Safety Harbor in 1988 and that history stands
+     * where it is stated; this is the operating office today. Both sit in
+     * Pinellas County, so "the same market since 1988" remains accurate.
+     */
+    street: "153 2nd Ave N",
+    city: "St. Petersburg",
     region: "FL",
     regionName: "Florida",
-    postalCode: "34695",
+    postalCode: "33701",
     country: "US",
     countryName: "United States",
   },
-  geo: { lat: 28.0086, lng: -82.6934 },
+  geo: { lat: 27.7715, lng: -82.6376 },
   hours: [
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:30", closes: "17:00" },
   ],

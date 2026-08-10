@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     "Georgia retail development",
     "shopping center leasing",
     "commercial property management Tampa Bay",
-    "Safety Harbor commercial developer",
+    "St. Petersburg commercial developer",
     "build to suit retail",
   ],
   alternates: { canonical: BASE_URL },

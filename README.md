@@ -1,7 +1,7 @@
 # Paradise Ventures, Inc. — Website
 
 Marketing site for [Paradise Ventures](https://paradiseventuresinc.com), a retail
-real estate developer in Safety Harbor, Florida. Built with Next.js 15 (App
+real estate developer in St. Petersburg, Florida. Built with Next.js 15 (App
 Router), React 19, TypeScript and Tailwind CSS v4. Deploys to Vercel.
 
 117 pages are prerendered at build time — every project, service, market,

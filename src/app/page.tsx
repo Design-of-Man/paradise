@@ -87,7 +87,7 @@ export default function HomePage() {
 
         <div className="shell relative z-10">
           <Reveal>
-            <p className="eyebrow">Established 1988 · Safety Harbor, Florida</p>
+            <p className="eyebrow">Established 1988 · St. Petersburg, Florida</p>
           </Reveal>
 
           <Reveal delay={80}>

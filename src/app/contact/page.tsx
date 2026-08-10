@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMeta({
   path: "/contact",
   keywords: [
     "contact Paradise Ventures",
-    "Safety Harbor commercial developer contact",
+    "St. Petersburg commercial developer contact",
     "retail developer Florida phone",
   ],
 });
@@ -222,7 +222,7 @@ export default async function ContactPage({
             <div className="ml-auto max-w-lg lg:mr-14">
               <p className="eyebrow">Find Us</p>
               <h2 className="mt-5 text-(length:--text-display-sm) text-white">
-                Safety Harbor, Florida.
+                St. Petersburg, Florida.
               </h2>
               <p className="mt-5 text-[1.0625rem] leading-relaxed text-white/60">
                 The firm has worked from the Tampa Bay market since 1988. Three
