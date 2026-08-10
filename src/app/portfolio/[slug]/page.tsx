@@ -164,8 +164,10 @@ export default async function ProjectPage({
 
               {project.tenants && project.tenants.length > 0 && (
                 <div className="mt-8">
+                  {/* Completed centres list the roster as published at opening,
+                      which for older projects includes since-departed brands. */}
                   <h3 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
-                    Notable Tenants
+                    {project.status === "completed" ? "Tenants at Opening" : "Notable Tenants"}
                   </h3>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {project.tenants.map((t) => (

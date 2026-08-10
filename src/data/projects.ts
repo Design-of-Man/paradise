@@ -234,6 +234,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Wachovia Bank", "Shell Oil"],
     summary:
       "A Broward County center built into one of South Florida's densest retail corridors.",
     body: [
@@ -251,6 +252,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Eckerd Drug"],
     summary:
       "Neighborhood shops on the Northlake corridor in northern Palm Beach County.",
     body: [
@@ -268,6 +270,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix"],
     summary:
       "The firm's expansion into metro Atlanta, west of the city in Douglas County.",
     body: [
@@ -285,6 +288,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix"],
     summary:
       "A hard-corner Broward County center at the intersection of two major arterials.",
     body: [
@@ -302,6 +306,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix"],
     summary:
       "A neighborhood grocery serving the master-planned communities of southwest Broward.",
     body: [
@@ -319,6 +324,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Blockbuster"],
     summary:
       "A Panhandle center serving Fort Walton Beach and the Emerald Coast.",
     body: [
@@ -336,6 +342,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix"],
     summary: "A neighborhood center in one of Broward County's established suburbs.",
     body: [
       "Cooper City Commons opened in 2002, serving one of Broward County's most stable residential communities. Cooper City's household profile — owner-occupied, family-oriented, high median income — is close to an ideal grocery trade area.",
@@ -352,6 +359,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Blockbuster"],
     summary:
       "A Henry County center built ahead of metro Atlanta's southern growth wave.",
     body: [
@@ -385,6 +393,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Wachovia", "Wendy's"],
     summary:
       "A Publix-anchored center in West Palm Beach that later traded to institutional ownership.",
     body: [
@@ -402,6 +411,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix"],
     summary:
       "A Hillsborough County center in the firm's own Tampa Bay backyard.",
     body: [
@@ -419,6 +429,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Quiznos"],
     summary: "A neighborhood center serving the Town of Davie in central Broward.",
     body: [
       "Paradise Promenade opened in 2003 in Davie, a central Broward community with an unusual mix of established residential neighborhoods, equestrian districts, and a substantial university presence.",
@@ -435,6 +446,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Kazbor's Grille"],
     summary: "A Santa Rosa County center on Florida's Emerald Coast.",
     body: [
       "Paradise Shoppes of Navarre opened in 2003 in Santa Rosa County, between Pensacola and Fort Walton Beach. Navarre grew substantially through this period, and the center was positioned to serve that expanding permanent population.",
@@ -451,6 +463,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Washington Mutual"],
     summary: "A southeast metro Atlanta center serving Clayton and Henry counties.",
     body: [
       "Paradise Shoppes of Ellenwood opened in 2003 southeast of Atlanta, near the Clayton and Henry county line. The site served a residential base that had grown well ahead of its retail supply.",
@@ -467,6 +480,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Beef 'O' Brady's"],
     summary: "A Paulding County center northwest of Atlanta.",
     body: [
       "Paradise Shoppes of Dallas opened in 2004 in Paulding County, one of metro Atlanta's fastest-growing outer counties through the 2000s. The center brought a full-service grocery to a trade area that had been driving well outside it for daily needs.",
@@ -483,6 +497,7 @@ export const projects: Project[] = [
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
+    tenants: ["Publix", "Blockbuster", "Beef 'O' Brady's"],
     summary: "A Cherokee County center serving Canton and the I-575 corridor.",
     body: [
       "Paradise Shoppes of Prominence Point opened in 2004 in Canton, along the I-575 corridor in Cherokee County. The corridor carried substantial residential growth north out of Atlanta through this period.",
@@ -507,9 +522,10 @@ export const projects: Project[] = [
   {
     slug: "paradise-shoppes-of-warner-robins",
     name: "Paradise Shoppes of Warner Robins",
-    city: "Warner Robins",
+    city: "Kathleen",
     state: "GA",
     stateName: "Georgia",
+    year: 2004,
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
@@ -526,6 +542,7 @@ export const projects: Project[] = [
     city: "Summerville",
     state: "SC",
     stateName: "South Carolina",
+    year: 2006,
     status: "completed",
     type: "Publix-Anchored Center",
     anchor: "Publix",
@@ -534,6 +551,206 @@ export const projects: Project[] = [
     body: [
       "Paradise Shoppes of Summerville extends the firm's grocery-anchored platform into South Carolina, serving Summerville in the greater Charleston market — one of the Southeast's strongest sustained growth stories.",
       "The project reflects the firm's broader footprint: while Florida and Georgia carry the bulk of the portfolio, Paradise has developed across eight states.",
+    ],
+  },
+  {
+    slug: "shoppes-of-del-prado",
+    name: "Shoppes of Del Prado",
+    city: "North Fort Myers",
+    state: "FL",
+    stateName: "Florida",
+    year: 2012,
+    status: "completed",
+    type: "Publix-Anchored Center",
+    anchor: "Publix",
+    tenants: ["Publix", "Walgreens"],
+    summary:
+      "A Southwest Florida center pairing a Publix anchor with a Walgreens on the same site.",
+    body: [
+      "Shoppes of Del Prado opened in 2012 in North Fort Myers, anchored by Publix with a Walgreens alongside it.",
+      "Grocery and pharmacy on one site is a deliberate combination rather than a coincidence. The two draw overlapping but distinct trips, and a household that can do both in one stop is a household that keeps coming back to the corner rather than splitting its errands across town.",
+      "The project also marked the firm's return to development volume following the 2008 downturn, in one of the Florida markets that had been hit hardest by it.",
+    ],
+  },
+  {
+    slug: "shoppes-of-price-crossing",
+    name: "Shoppes of Price Crossing",
+    city: "North Port",
+    state: "FL",
+    stateName: "Florida",
+    year: 2008,
+    status: "completed",
+    type: "Publix-Anchored Center",
+    anchor: "Publix",
+    tenants: [
+      "Publix",
+      "Burger King",
+      "Fifth Third Bank",
+      "First Choice Haircutters",
+      "PostNet",
+      "Buffalo Wings & Rings",
+    ],
+    summary:
+      "A Sarasota County center with a full complement of shop and outparcel tenants.",
+    body: [
+      "Shoppes of Price Crossing opened in 2008 in North Port, one of the fastest-growing municipalities in Sarasota County through the preceding decade.",
+      "The tenant roster shows the neighborhood-center formula working as intended: a Publix anchor generating the weekly trip, a bank and quick-service restaurant on the outparcels catching arterial traffic, and service uses in the shop space — hair care, shipping, casual dining — capturing a share of trips the anchor already created.",
+      "Delivering into 2008 meant opening directly into the financial crisis. Centers underwritten on real household demand rather than speculative growth are the ones that came through it.",
+    ],
+  },
+  {
+    slug: "shoppes-at-glen-lakes",
+    name: "Shoppes at Glen Lakes",
+    city: "Weeki Wachee",
+    state: "FL",
+    stateName: "Florida",
+    year: 2008,
+    status: "completed",
+    type: "Publix-Anchored Center",
+    anchor: "Publix",
+    tenants: ["Publix", "SunTrust Bank"],
+    summary:
+      "A Hernando County center serving the Nature Coast north of Tampa Bay.",
+    body: [
+      "Shoppes at Glen Lakes opened in 2008 in Weeki Wachee, on Florida's Nature Coast in Hernando County, anchored by Publix with a SunTrust Bank branch.",
+      "Hernando County absorbed substantial residential growth as households moved north out of the Tampa Bay metro in search of land and lower cost. Retail supply lagged that movement by years, which is precisely the gap the firm looks for.",
+      "The center sits within reach of the firm's Safety Harbor office — close enough that the trade area was understood first-hand rather than from a report.",
+    ],
+  },
+  {
+    slug: "shoppes-of-sugarmill-woods",
+    name: "Shoppes of Sugarmill Woods",
+    city: "Homosassa",
+    state: "FL",
+    stateName: "Florida",
+    year: 2008,
+    status: "completed",
+    type: "Publix-Anchored Center",
+    anchor: "Publix",
+    tenants: ["Publix", "SunTrust Bank", "Walgreens"],
+    summary:
+      "A Citrus County center combining grocery, pharmacy and banking with outparcel development.",
+    body: [
+      "Shoppes of Sugarmill Woods opened in 2008 in Homosassa, Citrus County, with Publix, a Walgreens, a SunTrust Bank branch and additional outparcels.",
+      "The mix is close to a complete neighborhood service offering on a single corner: groceries, prescriptions, banking and convenience. In a market with the demographic profile of Citrus County — older, settled, strongly resident rather than seasonal — that concentration of daily needs is worth more than it would be in a market defined by discretionary spend.",
+      "Grocery and pharmacy under one ownership also allowed both prototypes to be planned against a single site plan rather than negotiated across a property line.",
+    ],
+  },
+  {
+    slug: "corsica-square",
+    name: "Corsica Square",
+    city: "Miami",
+    state: "FL",
+    stateName: "Florida",
+    year: 2007,
+    status: "completed",
+    type: "Publix-Anchored Center",
+    anchor: "Publix",
+    tenants: ["Publix"],
+    summary:
+      "A Miami-Dade infill center with local retail and outparcel development.",
+    body: [
+      "Corsica Square opened in 2007 in Miami, a Publix-anchored infill center with local shop tenants and outparcels.",
+      "Miami-Dade infill work is the hardest development the firm does. Land is constrained and expensive, entitlement is intricate, parking is fought for rather than assumed, and the site plan is dictated by an existing street grid rather than drawn onto open ground.",
+      "The shop tenancy leans local rather than national, which is typical of Miami neighborhood retail and, handled properly, a strength — local operators in a dense urban trade area frequently outperform the national credit beside them.",
+    ],
+  },
+  {
+    slug: "shoppes-of-paradise-key",
+    name: "Shoppes of Paradise Key",
+    city: "Destin",
+    state: "FL",
+    stateName: "Florida",
+    year: 1999,
+    status: "completed",
+    type: "Mixed Retail",
+    anchor: "Publix",
+    tenants: [
+      "Publix",
+      "Stein Mart",
+      "Old Navy",
+      "Pier 1 Imports",
+      "Bed Bath & Beyond",
+      "Boater's World",
+      "Bonefish Grill",
+    ],
+    summary:
+      "The firm's largest Emerald Coast project, delivered in two phases with a national junior-anchor roster.",
+    body: [
+      "Shoppes of Paradise Key in Destin is the largest project in the firm's Panhandle portfolio, delivered in two phases — Phase I in 1999 and Phase II in 2002.",
+      "The tenant roster puts it in a different category to the neighborhood centers around it. Alongside the Publix anchor sit Stein Mart, Old Navy, Pier 1 Imports, Bed Bath & Beyond, Boater's World and Bonefish Grill — a junior-anchor lineup that draws from a far wider radius than a grocery trade area.",
+      "Destin's demand profile makes that viable. A permanent residential base is layered with substantial seasonal population, and the combined spend supports comparison retail that year-round households alone would not. Underwriting a market like this means reading two populations correctly and building for the one that persists.",
+      "Phasing the delivery let the second phase respond to what the first proved, rather than committing the whole programme to a single set of assumptions.",
+    ],
+  },
+  {
+    slug: "publix-at-st-andrews",
+    name: "Publix at St. Andrews",
+    city: "Port St. Lucie",
+    state: "FL",
+    stateName: "Florida",
+    year: 2003,
+    status: "completed",
+    type: "Single-Tenant Retail",
+    anchor: "Publix",
+    tenants: ["Publix"],
+    summary: "A Publix serving the St. Lucie West growth corridor.",
+    body: [
+      "Publix at St. Andrews opened in 2003 in Port St. Lucie, then among the fastest-growing cities in Florida.",
+      "The Treasure Coast absorbed enormous residential development through this period, much of it master-planned communities built well ahead of their retail. Households arrived with no full-service grocery within a reasonable drive — the clearest possible signal that a trade area is ready.",
+    ],
+  },
+  {
+    slug: "publix-las-olas",
+    name: "Publix Las Olas",
+    city: "Fort Lauderdale",
+    state: "FL",
+    stateName: "Florida",
+    year: 2003,
+    status: "completed",
+    type: "Single-Tenant Retail",
+    anchor: "Publix",
+    tenants: ["Publix"],
+    summary:
+      "A free-standing Publix serving downtown Fort Lauderdale and the Las Olas corridor.",
+    body: [
+      "Publix Las Olas opened in 2003, a free-standing store serving the Las Olas Boulevard corridor and downtown Fort Lauderdale.",
+      "Urban grocery is a distinct discipline. The trade area is measured in blocks rather than minutes, a meaningful share of customers arrive on foot, and parking must be solved vertically or below grade rather than in a surface field. Prototype dimensions that work on a suburban corner rarely survive contact with a downtown parcel.",
+      "Projects like this one demonstrate the firm's range beyond the suburban neighborhood center that defines most of the portfolio.",
+    ],
+  },
+  {
+    slug: "publix-at-surfside",
+    name: "Publix at Surfside",
+    city: "Surfside",
+    state: "FL",
+    stateName: "Florida",
+    year: 2003,
+    status: "completed",
+    type: "Single-Tenant Retail",
+    anchor: "Publix",
+    tenants: ["Publix"],
+    summary:
+      "A free-standing Publix serving the barrier-island community of Surfside.",
+    body: [
+      "Publix at Surfside opened in 2003, serving the barrier-island community north of Miami Beach.",
+      "Barrier-island sites are constrained in every direction. Land is scarce and expensive, the trade area is bounded by water on two sides, and construction carries coastal requirements that inland work does not. What the constraint buys is a defensible position — once a store is operating on an island trade area, there is rarely room for a second.",
+    ],
+  },
+  {
+    slug: "paradise-shoppes-of-perry",
+    name: "Paradise Shoppes of Perry",
+    city: "Perry",
+    state: "GA",
+    stateName: "Georgia",
+    status: "completed",
+    type: "Publix-Anchored Center",
+    anchor: "Publix",
+    tenants: ["Publix"],
+    summary: "A middle Georgia center serving Perry and Houston County.",
+    body: [
+      "Paradise Shoppes of Perry serves Perry, in Houston County, middle Georgia — the same county as the firm's Warner Robins center.",
+      "Returning to a county already worked is a deliberate pattern across the portfolio. Entitlement history, working relationships with local staff, and demonstrated trade-area performance all carry over, and each of those materially reduces execution risk on the next project.",
     ],
   },
 ];

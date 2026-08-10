@@ -62,17 +62,33 @@ Four active projects — Keene Plaza, Sundial, Clearwater Air Park and East Bay 
 were transcribed from screenshots of the live `/projects` page, including their
 bullet copy verbatim.
 
-**Two things still needed there:**
+The completed portfolio was subsequently recovered from the firm's own
+`/past-projects` page and now stands at 31 centres spanning 1992–2012, with
+opening years and tenant rosters.
 
-- **No Completed Projects have been captured at all.** East Bay was initially
-  filed as completed by misreading the section break; it sits above the
-  "Completed Projects" heading and is active. Everything below that heading is
-  still missing. Two further cards sat in East Bay's row and had not loaded when
-  the screenshot was taken — those are likely active too.
+**Still outstanding:**
+
+- **Verify the completed list against the live page.** It was reconstructed from
+  search-engine records of `/past-projects` rather than read directly — this
+  container cannot reach paradiseventuresinc.com. Names, cities, years and
+  tenants should be spot-checked before launch. Two entries have no opening year
+  on record (New Hope, and Perry) and are excluded from the chronology.
 - Three of **Clearwater Air Park's** bullets were truncated mid-sentence in the
   screenshot. What is on the site now is accurate but incomplete: the elevation
   figure, the description of the charter operation, and the runway specification
   are all missing. Worth checking against the live page before launch.
+- Two further cards sat in East Bay's row on `/projects` and had not loaded when
+  the screenshot was taken. Given East Bay's placement those are likely **active**
+  projects, and are not yet on the site.
+
+### Tenant rosters are historic
+
+Completed centres list the roster **as published at opening**, which for older
+projects includes brands that no longer exist — Blockbuster, Eckerd, Washington
+Mutual, Wachovia. The detail page labels this section "Tenants at Opening" for
+completed projects (and "Notable Tenants" for active ones) so it reads as a
+record rather than a current rent roll. If you would rather show current
+tenants, send them and the label logic can go.
 
 ## 3a. Positioning — worth a decision
 
@@ -99,16 +115,16 @@ Project pages support `gla` (square feet), `acreage` and `outparcels`. These are
 **omitted rather than estimated** — the page layout handles their absence
 cleanly. Supply real figures and they will render in the facts panel.
 
-Two projects also have no opening year on record and are therefore excluded from
-the chronology sections:
+Two projects have no opening year on record and are therefore excluded from the
+chronology sections:
 
 - Paradise Shoppes of New Hope — Dallas, GA
-- Paradise Shoppes of Warner Robins — Warner Robins, GA
-- Paradise Shoppes of Summerville — Summerville, SC
+- Paradise Shoppes of Perry — Perry, GA
 
-Also worth confirming: **Edgewater Commons** is listed as Edgewater, FL and
-**Sawgrass Center** as Sunrise, FL (Broward County). Both were recorded from
-published project lists that named the county rather than the municipality.
+Two location records are worth confirming. **Sawgrass Center** is recorded as
+Sunrise, FL from a source that named only "Broward County". **Paradise Shoppes
+of Warner Robins** is recorded as Kathleen, GA — the published list gives
+Kathleen even though the centre carries the Warner Robins name.
 
 ---
 
