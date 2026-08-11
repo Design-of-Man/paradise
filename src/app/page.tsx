@@ -62,7 +62,7 @@ export default function HomePage() {
       {/* Ink-toned so it reads as a continuation of the sunset       */}
       {/* rather than an abrupt return to paper.                      */}
       {/* ---------------------------------------------------------- */}
-      <Section tone="ink" className="!py-16 md:!py-20">
+      <Section tone="ink" className="relative z-10 !py-16 md:!py-20">
         <div className="shell grid gap-12 lg:grid-cols-[1.1fr_1.4fr] lg:items-end lg:gap-20">
           <Reveal>
             <p className="text-lg leading-relaxed text-white/70">
