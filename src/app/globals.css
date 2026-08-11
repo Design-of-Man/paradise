@@ -635,3 +635,53 @@
     .crane-hero { position: relative; }
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Video hero — preview only, not on the live homepage                 */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .video-hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    height: 100svh;
+    overflow: hidden;
+    background: #2a1a33;
+  }
+
+  .video-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .video-hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*
+     * Portrait footage in a landscape frame loses most of its height. Holding
+     * the crop high keeps the horizon, the sun and the full crane in shot; a
+     * centre crop cuts the crane's jib off the top and fills the frame with
+     * water.
+     */
+    object-position: 50% 34%;
+  }
+
+  .video-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgb(12 6 18 / 0.82) 0%, rgb(12 6 18 / 0.38) 34%, rgb(12 6 18 / 0.06) 66%, transparent 100%),
+      linear-gradient(to right, rgb(12 6 18 / 0.5) 0%, rgb(12 6 18 / 0.12) 55%, transparent 100%);
+  }
+
+  /* The footage is portrait, so a phone is where it needs no crop at all. */
+  @media (max-width: 768px) {
+    .video-hero__video {
+      object-position: 50% 50%;
+    }
+  }
+}
