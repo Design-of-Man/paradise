@@ -528,6 +528,24 @@
   }
 
   /*
+   * Pointer control.
+   *
+   * The class is added by CraneCursor once it has confirmed a fine pointer and
+   * no reduced-motion preference. Until then — and forever, on a phone — the
+   * timed cycle above runs untouched, so the crane is never parked waiting to
+   * be discovered.
+   *
+   * The easing is done in the script, which writes a settled value each frame;
+   * a CSS transition on top would fight it and add lag on top of lag.
+   */
+  .crane-hero--pointer .crane-trolley,
+  .crane-hero--pointer .crane-swing {
+    /* The transforms themselves are written inline, per frame, by the script.
+       All this rule does is stand the timed cycle down. */
+    animation: none;
+  }
+
+  /*
    * Scroll-linked hoist.
    *
    * The hook follows the scroll position rather than the clock: scroll down,

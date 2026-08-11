@@ -1,3 +1,5 @@
+import { CraneCursor } from "./CraneCursor";
+
 /**
  * Coded crane hero.
  *
@@ -416,6 +418,13 @@ export function CraneHero({
           {/* Static tile, never animated — it exists to break gradient banding. */}
           <div className="crane-hero__grain" />
         </div>
+
+        {/*
+          Pointer control. Renders nothing — it exists to hand the trolley over
+          to the cursor on devices that have one. Last in the tree on purpose,
+          so the headline is parsed and painted before any of it is considered.
+        */}
+        <CraneCursor />
       </section>
     </div>
   );
