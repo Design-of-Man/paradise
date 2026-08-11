@@ -25,10 +25,13 @@ const ANSWER_ENGINES = [
   "GPTBot",
   "OAI-SearchBot",
   "ChatGPT-User",
-  // Anthropic: crawl, search index, and user-initiated fetch.
+  // Anthropic: crawl, search index, and user-initiated fetch. `anthropic-ai`
+  // is the older identifier and is still checked by some tooling, so it is
+  // named rather than left to the wildcard.
   "ClaudeBot",
   "Claude-SearchBot",
   "Claude-User",
+  "anthropic-ai",
   // Google's AI surfaces. Google-Extended does not affect ordinary Search
   // ranking — it governs Gemini and AI Overviews grounding.
   "Google-Extended",

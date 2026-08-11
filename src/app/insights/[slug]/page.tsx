@@ -58,6 +58,7 @@ export default async function InsightPage({
             description: post.excerpt,
             path: `/insights/${post.slug}`,
             datePublished: post.date,
+            dateModified: post.updated,
             author: post.author,
           }),
         )}
@@ -100,6 +101,14 @@ export default async function InsightPage({
               <span>{post.author}</span>
               <span aria-hidden>·</span>
               <time dateTime={post.date}>{formatDate(post.date)}</time>
+              {post.updated && (
+                <>
+                  <span aria-hidden>·</span>
+                  <time dateTime={post.updated}>
+                    Updated {formatDate(post.updated)}
+                  </time>
+                </>
+              )}
               <span aria-hidden>·</span>
               <span className="nums">{post.readingTime} min read</span>
             </div>

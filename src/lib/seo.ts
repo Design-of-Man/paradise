@@ -287,6 +287,7 @@ export function articleSchema(opts: {
   description: string;
   path: string;
   datePublished: string;
+  dateModified?: string;
   author: string;
 }) {
   return {
@@ -296,7 +297,7 @@ export function articleSchema(opts: {
     url: absolute(opts.path),
     mainEntityOfPage: absolute(opts.path),
     datePublished: opts.datePublished,
-    dateModified: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
     image: absolute(`${opts.path}/opengraph-image`),
     author: { "@type": "Organization", name: opts.author, "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
