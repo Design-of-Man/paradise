@@ -311,3 +311,248 @@
     }
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Crane hero                                                          */
+/*                                                                     */
+/* The sky is regraded by editing the --dawn-* values below and        */
+/* nothing else; every gradient stop in the SVG references them.       */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .crane-hero {
+    --dawn-0: #0b111a;
+    --dawn-1: #16202e;
+    --dawn-2: #3a4150;
+    --dawn-3: #97897a;
+    --dawn-4: #e9e2d4;
+    --dawn-glow: #f6ecd9;
+    --dawn-haze: #cdc3b4;
+    --dawn-scrim: #080d15;
+    --crane: #05080d;
+
+    /* One cycle. Long enough to read as ambient, short enough to stay alive. */
+    --crane-cycle: 26s;
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    min-height: min(92svh, 900px);
+    overflow: hidden;
+    background: var(--dawn-1);
+  }
+
+  .crane-hero__art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .crane-hero__svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .crane-hero__grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/grain.png");
+    background-repeat: repeat;
+    background-size: 64px 64px;
+    opacity: 0.055;
+    mix-blend-mode: overlay;
+  }
+
+  .crane-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 62rem;
+    padding: 0 var(--spacing-gutter) clamp(3.5rem, 9vh, 7rem);
+  }
+
+  .crane-hero__eyebrow {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.62);
+  }
+
+  .crane-hero__headline {
+    margin-top: 1.4rem;
+    max-width: 22ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 1.2rem + 4.6vw, 5.25rem);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    color: #fff;
+    text-wrap: balance;
+  }
+
+  .crane-hero__cta {
+    display: inline-block;
+    margin-top: clamp(2rem, 4vh, 3rem);
+    border: 1px solid rgb(255 255 255 / 0.55);
+    padding: 1.05rem 2.4rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    transition:
+      background-color 0.45s var(--ease-out-soft),
+      color 0.45s var(--ease-out-soft),
+      border-color 0.45s var(--ease-out-soft);
+  }
+
+  .crane-hero__cta:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--color-ink);
+  }
+
+  /* --- Motion ----------------------------------------------------- */
+
+  .crane-trolley,
+  .crane-swing,
+  .crane-hoist,
+  .crane-cable,
+  .haze {
+    transform-box: fill-box;
+    will-change: transform;
+  }
+
+  .crane-trolley {
+    transform-origin: 50% 0;
+    animation: crane-trolley var(--crane-cycle) infinite;
+  }
+
+  /* Pivots at the trolley, so the load trails from where it actually hangs. */
+  .crane-swing {
+    transform-origin: 50% 0;
+    animation: crane-swing var(--crane-cycle) infinite;
+  }
+
+  .crane-hoist {
+    transform-origin: 50% 0;
+    animation: crane-hoist var(--crane-cycle) infinite;
+  }
+
+  /* A 1px rect scaled on Y — so the cable lengthens without touching geometry. */
+  .crane-cable {
+    transform-origin: 50% 0;
+    animation: crane-cable var(--crane-cycle) infinite;
+  }
+
+  .haze--1 { animation: haze-drift 96s linear infinite; }
+  .haze--2 { animation: haze-drift 148s linear infinite reverse; }
+  .haze--3 { animation: haze-drift 122s linear infinite; }
+
+  /*
+   * Cycle, in one place so the four tracks stay in step:
+   *   0–3    dwell            46–61   travel out to the tip
+   *   3–19   lower            61–64   settle
+   *   19–25  dwell            64–76   lower
+   *   25–40  raise            76–80   dwell
+   *   40–46  dwell            80–86   raise
+   *                           86–100  travel back
+   * Start and end states are identical, so the loop has no seam.
+   */
+  @keyframes crane-trolley {
+    0%, 46% { transform: translateX(0); animation-timing-function: cubic-bezier(0.5, 0, 0.14, 1); }
+    61%, 86% { transform: translateX(-520px); animation-timing-function: cubic-bezier(0.5, 0, 0.14, 1); }
+    100% { transform: translateX(0); }
+  }
+
+  /*
+   * A hook block under load accelerates slowly and decelerates slower still,
+   * which is the whole difference between this and a loading spinner.
+   */
+  @keyframes crane-hoist {
+    0%, 3% { transform: translateY(0); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
+    19%, 25% { transform: translateY(300px); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+    40%, 64% { transform: translateY(0); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
+    76%, 80% { transform: translateY(182px); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+    86%, 100% { transform: translateY(0); }
+  }
+
+  @keyframes crane-cable {
+    0%, 3% { transform: scaleY(8); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
+    19%, 25% { transform: scaleY(308); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+    40%, 64% { transform: scaleY(8); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
+    76%, 80% { transform: scaleY(190); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+    86%, 100% { transform: scaleY(8); }
+  }
+
+  /*
+   * The pendulum. The load lags on acceleration, overshoots when the trolley
+   * stops, then settles in a decaying oscillation. Amplitudes fall roughly by
+   * half each swing, which is what reads as mass rather than wobble.
+   */
+  @keyframes crane-swing {
+    0%, 46% { transform: rotate(0deg); }
+    52% { transform: rotate(3.1deg); }
+    59% { transform: rotate(2.2deg); }
+    62% { transform: rotate(-2.4deg); }
+    66% { transform: rotate(1.35deg); }
+    70% { transform: rotate(-0.7deg); }
+    74% { transform: rotate(0.3deg); }
+    78%, 86% { transform: rotate(0deg); }
+    91% { transform: rotate(-2.9deg); }
+    95% { transform: rotate(1.5deg); }
+    98% { transform: rotate(-0.6deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Translating by exactly half the doubled width puts the seam off-screen. */
+  @keyframes haze-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-520px); }
+  }
+
+  /* --- Narrow viewports ------------------------------------------- */
+  /*
+   * Reframed rather than scaled down: the crane slides right and up so it
+   * crops against the edge, which keeps the lattice at a readable weight and
+   * leaves the left of the frame open for the headline.
+   */
+  @media (max-width: 768px) {
+    /*
+     * `slice` on a portrait viewport shows only the middle ~420 units of the
+     * 1600-unit frame, which is a stretch of bare jib — the mast falls outside
+     * it entirely and the crane stops being a crane. Sliding the structure
+     * left brings the mast back into that window with the jib running off the
+     * edge, which is the crop worth having. Sky, haze and scrim are untouched,
+     * so nothing exposes an edge.
+     */
+    .crane-near { transform: translateX(-328px); }
+    .crane-hero { min-height: min(88svh, 760px); }
+  }
+
+  /* --- Reduced motion --------------------------------------------- */
+  /*
+   * Frozen on a composed frame — trolley part-way out with the hook down —
+   * rather than the cycle's first frame, which is an empty sky and a parked
+   * hook and reads as though something failed to load.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .crane-trolley,
+    .crane-swing,
+    .crane-hoist,
+    .crane-cable,
+    .haze {
+      animation: none;
+      will-change: auto;
+    }
+    .crane-trolley { transform: translateX(-300px); }
+    .crane-hoist { transform: translateY(212px); }
+    .crane-cable { transform: scaleY(220); }
+    .crane-swing { transform: rotate(-1.1deg); }
+    .crane-hero__cta { transition: none; }
+  }
+}
