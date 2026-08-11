@@ -320,7 +320,7 @@
 /* ------------------------------------------------------------------ */
 
 @layer components {
-  .crane-hero {
+  .crane-hero-pin {
     /* Florida sunset. Regrade the whole sky by editing these eight values. */
     --sky-0: #1d1b3a;
     --sky-1: #4b2a5c;
@@ -335,11 +335,27 @@
     /* One cycle. Long enough to read as ambient, short enough to stay alive. */
     --crane-cycle: 26s;
 
+    /*
+     * Height is the viewport plus the distance the crane holds still for. The
+     * hero sticks to the top of this box, so 78vh of scroll passes with the
+     * jib stationary — which is the window the hook falls in.
+     *
+     * The sky colour sits here too: the hero is exactly one viewport tall, and
+     * any sliver of this box showing past it should be sunset, not paper.
+     */
     position: relative;
+    height: calc(100svh + 78vh);
+    background: var(--sky-4);
+  }
+
+  .crane-hero {
+    position: sticky;
+    top: 0;
+    z-index: 0;
     isolation: isolate;
     display: flex;
     align-items: flex-end;
-    min-height: min(92svh, 900px);
+    height: 100svh;
     overflow: hidden;
     background: var(--sky-1);
   }
@@ -528,25 +544,25 @@
       .crane-hoist {
         animation: crane-hoist-scroll linear both;
         animation-timeline: scroll(root block);
-        animation-range: 0 100vh;
+        animation-range: 0 74vh;
       }
 
       .crane-cable {
         animation: crane-cable-scroll linear both;
         animation-timeline: scroll(root block);
-        animation-range: 0 100vh;
+        animation-range: 0 74vh;
       }
     }
   }
 
   @keyframes crane-hoist-scroll {
     from { transform: translateY(0); }
-    to { transform: translateY(384px); }
+    to { transform: translateY(470px); }
   }
 
   @keyframes crane-cable-scroll {
     from { transform: scaleY(8); }
-    to { transform: scaleY(392); }
+    to { transform: scaleY(478); }
   }
 
   /* Translating by exactly half the doubled width puts the seam off-screen. */
@@ -571,7 +587,8 @@
      * so nothing exposes an edge.
      */
     .crane-near { transform: translateX(-328px); }
-    .crane-hero { min-height: min(88svh, 760px); }
+    /* A shorter hold on a phone — the same gesture over less thumb travel. */
+    .crane-hero-pin { height: calc(100svh + 58vh); }
   }
 
   /* --- Reduced motion --------------------------------------------- */
@@ -594,5 +611,8 @@
     .crane-cable { transform: scaleY(220); }
     .crane-swing { transform: rotate(-1.1deg); }
     .crane-hero__cta { transition: none; }
+    /* No pin either — a stationary crane does not need 78vh of scroll to hold. */
+    .crane-hero-pin { height: auto; }
+    .crane-hero { position: relative; }
   }
 }
