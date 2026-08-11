@@ -337,14 +337,15 @@
 
     /*
      * Height is the viewport plus the distance the crane holds still for. The
-     * hero sticks to the top of this box, so 78vh of scroll passes with the
-     * jib stationary — which is the window the hook falls in.
+     * hero sticks to the top of this box, so 165vh of scroll passes with the
+     * jib stationary — which is the window the hook falls in. Long on purpose:
+     * at half this the fall was over before it registered.
      *
      * The sky colour sits here too: the hero is exactly one viewport tall, and
      * any sliver of this box showing past it should be sunset, not paper.
      */
     position: relative;
-    height: calc(100svh + 78vh);
+    height: calc(100svh + 165vh);
     background: var(--sky-4);
   }
 
@@ -544,25 +545,25 @@
       .crane-hoist {
         animation: crane-hoist-scroll linear both;
         animation-timeline: scroll(root block);
-        animation-range: 0 74vh;
+        animation-range: 0 160vh;
       }
 
       .crane-cable {
         animation: crane-cable-scroll linear both;
         animation-timeline: scroll(root block);
-        animation-range: 0 74vh;
+        animation-range: 0 160vh;
       }
     }
   }
 
   @keyframes crane-hoist-scroll {
     from { transform: translateY(0); }
-    to { transform: translateY(470px); }
+    to { transform: translateY(614px); }
   }
 
   @keyframes crane-cable-scroll {
     from { transform: scaleY(8); }
-    to { transform: scaleY(478); }
+    to { transform: scaleY(622); }
   }
 
   /* Translating by exactly half the doubled width puts the seam off-screen. */
@@ -588,7 +589,7 @@
      */
     .crane-near { transform: translateX(-328px); }
     /* A shorter hold on a phone — the same gesture over less thumb travel. */
-    .crane-hero-pin { height: calc(100svh + 58vh); }
+    .crane-hero-pin { height: calc(100svh + 125vh); }
   }
 
   /* --- Reduced motion --------------------------------------------- */
