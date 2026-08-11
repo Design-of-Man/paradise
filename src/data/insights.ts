@@ -10,8 +10,16 @@ export interface Insight {
   /** Meta description and card summary. */
   excerpt: string;
   category: "Development" | "Leasing" | "Market" | "Construction" | "Investment";
-  /** ISO date. */
+  /** ISO date of publication. */
   date: string;
+  /**
+   * ISO date of a substantive revision, if there has been one. Drives both the
+   * visible byline and `dateModified` in the Article schema — answer engines
+   * weight recency heavily, and a piece that says it was revised is worth more
+   * than one that silently was. Left unset when the article stands as first
+   * published; the schema then reports the publication date, which is true.
+   */
+  updated?: string;
   readingTime: number;
   author: string;
   /** Markdown-lite: strings starting with "## " render as subheadings. */
