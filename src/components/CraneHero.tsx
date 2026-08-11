@@ -134,17 +134,17 @@ export function CraneHero({
         >
           <defs>
             <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--dawn-0)" />
-              <stop offset="34%" stopColor="var(--dawn-1)" />
-              <stop offset="62%" stopColor="var(--dawn-2)" />
-              <stop offset="83%" stopColor="var(--dawn-3)" />
-              <stop offset="100%" stopColor="var(--dawn-4)" />
+              <stop offset="0%" stopColor="var(--sky-0)" />
+              <stop offset="34%" stopColor="var(--sky-1)" />
+              <stop offset="62%" stopColor="var(--sky-2)" />
+              <stop offset="83%" stopColor="var(--sky-3)" />
+              <stop offset="100%" stopColor="var(--sky-4)" />
             </linearGradient>
             {/* The low sun sits behind the crane, which is what makes it a silhouette. */}
             <radialGradient id="sun" cx="0.74" cy="0.86" r="0.55">
-              <stop offset="0%" stopColor="var(--dawn-glow)" stopOpacity="0.85" />
-              <stop offset="55%" stopColor="var(--dawn-glow)" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="var(--dawn-glow)" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--sky-glow)" stopOpacity="0.85" />
+              <stop offset="55%" stopColor="var(--sky-glow)" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="var(--sky-glow)" stopOpacity="0" />
             </radialGradient>
             {/*
               Haze as a tiling pattern rather than a single wide rect.
@@ -155,9 +155,9 @@ export function CraneHero({
               moved, so the drift is both visible and perfectly periodic.
             */}
             <radialGradient id="hazeBlob">
-              <stop offset="0%" stopColor="var(--dawn-haze)" stopOpacity="0.62" />
-              <stop offset="60%" stopColor="var(--dawn-haze)" stopOpacity="0.22" />
-              <stop offset="100%" stopColor="var(--dawn-haze)" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--sky-haze)" stopOpacity="0.62" />
+              <stop offset="60%" stopColor="var(--sky-haze)" stopOpacity="0.22" />
+              <stop offset="100%" stopColor="var(--sky-haze)" stopOpacity="0" />
             </radialGradient>
             <pattern
               id="hazeTile"
@@ -174,10 +174,10 @@ export function CraneHero({
               over a #e9e2d4 sky is unreadable, and legibility wins.
             */}
             <linearGradient id="scrim" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0%" stopColor="var(--dawn-scrim)" stopOpacity="0.62" />
-              <stop offset="34%" stopColor="var(--dawn-scrim)" stopOpacity="0.3" />
-              <stop offset="70%" stopColor="var(--dawn-scrim)" stopOpacity="0.07" />
-              <stop offset="100%" stopColor="var(--dawn-scrim)" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--sky-scrim)" stopOpacity="0.62" />
+              <stop offset="34%" stopColor="var(--sky-scrim)" stopOpacity="0.3" />
+              <stop offset="70%" stopColor="var(--sky-scrim)" stopOpacity="0.07" />
+              <stop offset="100%" stopColor="var(--sky-scrim)" stopOpacity="0" />
             </linearGradient>
             {/*
               The scrim is pulled left as well as up. The headline needs the

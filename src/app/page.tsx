@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 import { Section, SectionHeading, Stat, CtaBand, Reveal, ArrowLink } from "@/components/ui";
 import { ProjectCard } from "@/components/ProjectCard";
 import { JsonLd } from "@/components/JsonLd";
+import { CraneHero } from "@/components/CraneHero";
 
 import { site } from "@/data/site";
 import { sortedServices } from "@/data/services";
@@ -48,79 +48,41 @@ export default function HomePage() {
       {/* ---------------------------------------------------------- */}
       {/* Hero                                                        */}
       {/* ---------------------------------------------------------- */}
-      <section className="grain relative flex min-h-[88vh] items-center overflow-hidden bg-ink pb-16 pt-28 text-paper md:pt-32">
-        {/* Full-bleed aerial, held well back so the headline stays legible.
-            quality is raised because a hero stretched to 2560px shows
-            compression artefacts at the Next.js default of 75. */}
-        <Image
-          src="/images/brand/hero.jpg"
-          alt=""
-          aria-hidden
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        {/* Plan grid */}
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.9) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.9) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
-        {/* Opaque behind the copy, easing off hard so the aerial reads on the
-            right. The vertical pass only anchors the top and bottom edges.
-            `hero-scrim` is a hook for print, where Chromium drops CSS gradients
-            and the headline would otherwise sit on bare photography. */}
-        <div
-          aria-hidden
-          className="hero-scrim absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/15"
-        />
-        <div
-          aria-hidden
-          className="hero-scrim absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/30"
-        />
+      <CraneHero
+        eyebrow={`Established ${site.founded} · ${site.address.city}, Florida`}
+        headline="We build more than buildings."
+        cta={{ label: "Start a conversation", href: "/contact" }}
+      />
 
-        <div className="shell relative z-10">
+      {/* ---------------------------------------------------------- */}
+      {/* What the hero no longer carries                             */}
+      {/*                                                             */}
+      {/* The hero is one line and one button by design, so the lede  */}
+      {/* and the headline figures moved here rather than being cut.  */}
+      {/* Ink-toned so it reads as a continuation of the sunset       */}
+      {/* rather than an abrupt return to paper.                      */}
+      {/* ---------------------------------------------------------- */}
+      <Section tone="ink" className="!py-16 md:!py-20">
+        <div className="shell grid gap-12 lg:grid-cols-[1.1fr_1.4fr] lg:items-end lg:gap-20">
           <Reveal>
-            <p className="eyebrow">Established 1988 · St. Petersburg, Florida</p>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h1 className="mt-6 max-w-5xl text-(length:--text-display-lg) text-white">
-              We build more than buildings.
-              <span className="block text-accent-pale">
-                We build relationships and value.
-              </span>
-            </h1>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">
+            <p className="text-lg leading-relaxed text-white/70">
               Paradise Ventures develops, constructs, leases and manages retail
               and mixed-use property across Florida and the Southeast — every
               function held in-house, from the first site visit to the day the
               doors open.
             </p>
-          </Reveal>
-
-          <Reveal delay={240}>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/portfolio" className="btn btn-accent">
-                View the Portfolio
-              </Link>
-              <Link href="/contact" className="btn btn-on-dark">
-                Start a Conversation
-              </Link>
+            <div className="mt-8 flex flex-wrap gap-6">
+              <ArrowLink href="/portfolio" tone="light">
+                View the portfolio
+              </ArrowLink>
+              <ArrowLink href="/leasing" tone="light">
+                Space available now
+              </ArrowLink>
             </div>
           </Reveal>
 
-          <Reveal delay={320}>
-            <dl className="mt-14 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-8 border-t border-line-dark pt-9 sm:grid-cols-4">
+          <Reveal delay={120}>
+            <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line-dark pt-9 sm:grid-cols-4">
               <div>
                 <dt className="sr-only">Square feet developed</dt>
                 <dd>
@@ -152,7 +114,7 @@ export default function HomePage() {
             </dl>
           </Reveal>
         </div>
-      </section>
+      </Section>
 
       {/* ---------------------------------------------------------- */}
       {/* Positioning                                                 */}

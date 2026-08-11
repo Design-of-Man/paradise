@@ -315,20 +315,21 @@
 /* ------------------------------------------------------------------ */
 /* Crane hero                                                          */
 /*                                                                     */
-/* The sky is regraded by editing the --dawn-* values below and        */
+/* The sky is regraded by editing the --sky-* values below and        */
 /* nothing else; every gradient stop in the SVG references them.       */
 /* ------------------------------------------------------------------ */
 
 @layer components {
   .crane-hero {
-    --dawn-0: #0b111a;
-    --dawn-1: #16202e;
-    --dawn-2: #3a4150;
-    --dawn-3: #97897a;
-    --dawn-4: #e9e2d4;
-    --dawn-glow: #f6ecd9;
-    --dawn-haze: #cdc3b4;
-    --dawn-scrim: #080d15;
+    /* Florida sunset. Regrade the whole sky by editing these eight values. */
+    --sky-0: #1d1b3a;
+    --sky-1: #4b2a5c;
+    --sky-2: #9c3f68;
+    --sky-3: #e06a4d;
+    --sky-4: #ffc07a;
+    --sky-glow: #ffe7b0;
+    --sky-haze: #ffb489;
+    --sky-scrim: #170e2b;
     --crane: #05080d;
 
     /* One cycle. Long enough to read as ambient, short enough to stay alive. */
@@ -340,7 +341,7 @@
     align-items: flex-end;
     min-height: min(92svh, 900px);
     overflow: hidden;
-    background: var(--dawn-1);
+    background: var(--sky-1);
   }
 
   .crane-hero__art {
@@ -507,6 +508,45 @@
     95% { transform: rotate(1.5deg); }
     98% { transform: rotate(-0.6deg); }
     100% { transform: rotate(0deg); }
+  }
+
+  /*
+   * Scroll-linked hoist.
+   *
+   * The hook follows the scroll position rather than the clock: scroll down,
+   * the load goes down. Driven by a CSS scroll timeline, so it stays off the
+   * main thread — a scroll listener repositioning the hook every frame would
+   * undo the reason this hero is coded rather than filmed.
+   *
+   * Guarded twice. @supports because scroll timelines are not everywhere yet,
+   * and where they are missing the time-based cycle above simply continues.
+   * The reduced-motion query because a hook that tracks the scrollbar is
+   * motion, and someone who asked for less of it should not get this either.
+   */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .crane-hoist {
+        animation: crane-hoist-scroll linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 100vh;
+      }
+
+      .crane-cable {
+        animation: crane-cable-scroll linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 100vh;
+      }
+    }
+  }
+
+  @keyframes crane-hoist-scroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(384px); }
+  }
+
+  @keyframes crane-cable-scroll {
+    from { transform: scaleY(8); }
+    to { transform: scaleY(392); }
   }
 
   /* Translating by exactly half the doubled width puts the seam off-screen. */
