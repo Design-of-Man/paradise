@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeading, Stat, CtaBand, Reveal, ArrowLink } from "@/components/ui";
 import { ProjectCard } from "@/components/ProjectCard";
 import { JsonLd } from "@/components/JsonLd";
-import { CraneHero } from "@/components/CraneHero";
+import { SkylineHero } from "@/components/SkylineHero";
 
 import { site } from "@/data/site";
 import { sortedServices } from "@/data/services";
@@ -48,7 +48,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------- */}
       {/* Hero                                                        */}
       {/* ---------------------------------------------------------- */}
-      <CraneHero
+      <SkylineHero
         eyebrow={`Established ${site.founded} · ${site.address.city}, Florida`}
         headline="We build more than buildings."
         cta={{ label: "Start a conversation", href: "/contact" }}
@@ -62,7 +62,7 @@ export default function HomePage() {
       {/* Ink-toned so it reads as a continuation of the sunset       */}
       {/* rather than an abrupt return to paper.                      */}
       {/* ---------------------------------------------------------- */}
-      <Section tone="ink" className="relative z-10 !py-16 md:!py-20">
+      <Section tone="ink" className="relative !py-16 md:!py-20">
         <div className="shell grid gap-12 lg:grid-cols-[1.1fr_1.4fr] lg:items-end lg:gap-20">
           <Reveal>
             <p className="text-lg leading-relaxed text-white/70">
