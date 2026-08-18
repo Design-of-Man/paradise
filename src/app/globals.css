@@ -313,68 +313,112 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Crane hero                                                          */
+/* Skyline hero                                                        */
 /*                                                                     */
-/* The sky is regraded by editing the --sky-* values below and        */
-/* nothing else; every gradient stop in the SVG references them.       */
+/* One photograph, two gradient scrims and the grain tile that runs     */
+/* everywhere else on the site. The scrim colour is sampled from the    */
+/* deep end of the sky in the picture rather than being neutral grey,   */
+/* so the darkening reads as dusk closing in and not as a sheet laid    */
+/* over the top.                                                       */
 /* ------------------------------------------------------------------ */
 
 @layer components {
-  .crane-hero-pin {
-    /* Florida sunset. Regrade the whole sky by editing these eight values. */
-    --sky-0: #1d1b3a;
-    --sky-1: #4b2a5c;
-    --sky-2: #9c3f68;
-    --sky-3: #e06a4d;
-    --sky-4: #ffc07a;
-    --sky-glow: #ffe7b0;
-    --sky-haze: #ffb489;
-    --sky-scrim: #170e2b;
-    --crane: #05080d;
+  .skyline-hero {
+    /* Sampled from the photograph: the plum of the upper cloud bank, and the
+       lit water, which is what paints while the image is still decoding. A
+       white flash under an LCP element is the one thing worth spending a
+       background declaration on. */
+    --hero-scrim: 43 23 51;
+    --hero-base: #b8672f;
 
-    /* One cycle. Long enough to read as ambient, short enough to stay alive. */
-    --crane-cycle: 26s;
+    /* How far the picture drifts against the scroll — and, because the frame
+       below is oversized by exactly this, how much slack there is at the
+       bottom edge. Change it in one place and both stay in step. */
+    --hero-parallax: 7vh;
 
-    /*
-     * Height is the viewport plus the distance the crane holds still for. The
-     * hero sticks to the top of this box, so 165vh of scroll passes with the
-     * jib stationary — which is the window the hook falls in. Long on purpose:
-     * at half this the fall was over before it registered.
-     *
-     * The sky colour sits here too: the hero is exactly one viewport tall, and
-     * any sliver of this box showing past it should be sunset, not paper.
-     */
     position: relative;
-    height: calc(100svh + 165vh);
-    background: var(--sky-4);
-  }
-
-  .crane-hero {
-    position: sticky;
-    top: 0;
-    z-index: 0;
     isolation: isolate;
     display: flex;
     align-items: flex-end;
     height: 100svh;
     overflow: hidden;
-    background: var(--sky-1);
+    background: var(--hero-base);
   }
 
-  .crane-hero__art {
+  .skyline-hero__art {
     position: absolute;
     inset: 0;
     z-index: 0;
+    overflow: hidden;
     pointer-events: none;
   }
 
-  .crane-hero__svg {
-    display: block;
-    width: 100%;
-    height: 100%;
+  /*
+   * The moving part. Taller than the hero by the parallax distance and pinned
+   * to the top, so translating it upwards can never pull its bottom edge into
+   * frame. The scrims are siblings rather than children — they belong to the
+   * viewport, not to the picture, and must not drift with it.
+   */
+  .skyline-hero__frame {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: calc(100% + var(--hero-parallax));
   }
 
-  .crane-hero__grain {
+  .skyline-hero__img {
+    object-fit: cover;
+    /* Slightly above centre. The horizon and the skyline sit in the upper
+       third of the frame, and a centred crop pushes them off the top on a
+       short viewport. */
+    object-position: 50% 42%;
+  }
+
+  /*
+   * Headline scrim. Rising from the bottom rather than a flat wash, so the lit
+   * water and the cloud bank survive above it.
+   */
+  .skyline-hero__scrim {
+    position: absolute;
+    inset: 24% 0 0;
+    background: linear-gradient(
+      to top,
+      rgb(var(--hero-scrim) / 0.78) 0%,
+      rgb(var(--hero-scrim) / 0.5) 34%,
+      rgb(var(--hero-scrim) / 0.2) 70%,
+      rgb(var(--hero-scrim) / 0) 100%
+    );
+    /* Pulled left as well as up: the headline needs the cover, the sunset over
+       the water does not, and darkening the full width flattens the picture. */
+    mask-image: linear-gradient(
+      to right,
+      #000 0%,
+      rgb(0 0 0 / 0.66) 58%,
+      rgb(0 0 0 / 0.16) 100%
+    );
+  }
+
+  /*
+   * Header scrim. The site header floats over this hero in white until the
+   * first scroll lifts the paper background into place, and white type on a
+   * sunlit cloud is not a legible pairing. Short and weak — enough for the
+   * logo and the nav, not enough to be seen as a band.
+   */
+  .skyline-hero__scrim--top {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 30%;
+    background: linear-gradient(
+      to bottom,
+      rgb(var(--hero-scrim) / 0.56) 0%,
+      rgb(var(--hero-scrim) / 0.3) 46%,
+      rgb(var(--hero-scrim) / 0) 100%
+    );
+  }
+
+  /* Static tile, never animated — it exists to break gradient banding and to
+     keep the hero in the same grain as the rest of the site's photography. */
+  .skyline-hero__grain {
     position: absolute;
     inset: 0;
     background-image: url("/images/grain.png");
@@ -384,7 +428,7 @@
     mix-blend-mode: overlay;
   }
 
-  .crane-hero__content {
+  .skyline-hero__content {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -392,15 +436,19 @@
     padding: 0 var(--spacing-gutter) clamp(3.5rem, 9vh, 7rem);
   }
 
-  .crane-hero__eyebrow {
+  .skyline-hero__eyebrow {
     font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgb(255 255 255 / 0.62);
+    color: rgb(255 255 255 / 0.82);
+    /* The eyebrow lands on the marina and the lit facades, which is the
+       busiest band of the picture — it needs the same lift as the headline
+       even though it carries a fraction of the weight. */
+    text-shadow: 0 1px 14px rgb(var(--hero-scrim) / 0.6);
   }
 
-  .crane-hero__headline {
+  .skyline-hero__headline {
     margin-top: 1.4rem;
     max-width: 22ch;
     font-family: var(--font-display);
@@ -410,9 +458,13 @@
     letter-spacing: -0.015em;
     color: #fff;
     text-wrap: balance;
+    /* A photograph has texture where a gradient has none, and the scrim alone
+       leaves the descenders sitting on lit water. Wide and very soft, so it
+       reads as depth rather than as a drop shadow. */
+    text-shadow: 0 2px 26px rgb(var(--hero-scrim) / 0.42);
   }
 
-  .crane-hero__cta {
+  .skyline-hero__cta {
     display: inline-block;
     margin-top: clamp(2rem, 4vh, 3rem);
     border: 1px solid rgb(255 255 255 / 0.55);
@@ -422,216 +474,58 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #fff;
+    backdrop-filter: blur(2px);
     transition:
       background-color 0.45s var(--ease-out-soft),
       color 0.45s var(--ease-out-soft),
       border-color 0.45s var(--ease-out-soft);
   }
 
-  .crane-hero__cta:hover {
+  .skyline-hero__cta:hover {
     background-color: #fff;
     border-color: #fff;
     color: var(--color-ink);
   }
 
-  /* --- Motion ----------------------------------------------------- */
-
-  .crane-trolley,
-  .crane-swing,
-  .crane-hoist,
-  .crane-cable,
-  .haze {
-    transform-box: fill-box;
-    will-change: transform;
-  }
-
-  .crane-trolley {
-    transform-origin: 50% 0;
-    animation: crane-trolley var(--crane-cycle) infinite;
-  }
-
-  /* Pivots at the trolley, so the load trails from where it actually hangs. */
-  .crane-swing {
-    transform-origin: 50% 0;
-    animation: crane-swing var(--crane-cycle) infinite;
-  }
-
-  .crane-hoist {
-    transform-origin: 50% 0;
-    animation: crane-hoist var(--crane-cycle) infinite;
-  }
-
-  /* A 1px rect scaled on Y — so the cable lengthens without touching geometry. */
-  .crane-cable {
-    transform-origin: 50% 0;
-    animation: crane-cable var(--crane-cycle) infinite;
-  }
-
-  .haze--1 { animation: haze-drift 96s linear infinite; }
-  .haze--2 { animation: haze-drift 148s linear infinite reverse; }
-  .haze--3 { animation: haze-drift 122s linear infinite; }
-
   /*
-   * Cycle, in one place so the four tracks stay in step:
-   *   0–3    dwell            46–61   travel out to the tip
-   *   3–19   lower            61–64   settle
-   *   19–25  dwell            64–76   lower
-   *   25–40  raise            76–80   dwell
-   *   40–46  dwell            80–86   raise
-   *                           86–100  travel back
-   * Start and end states are identical, so the loop has no seam.
-   */
-  @keyframes crane-trolley {
-    0%, 46% { transform: translateX(0); animation-timing-function: cubic-bezier(0.5, 0, 0.14, 1); }
-    61%, 86% { transform: translateX(-520px); animation-timing-function: cubic-bezier(0.5, 0, 0.14, 1); }
-    100% { transform: translateX(0); }
-  }
-
-  /*
-   * A hook block under load accelerates slowly and decelerates slower still,
-   * which is the whole difference between this and a loading spinner.
-   */
-  @keyframes crane-hoist {
-    0%, 3% { transform: translateY(0); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
-    19%, 25% { transform: translateY(300px); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-    40%, 64% { transform: translateY(0); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
-    76%, 80% { transform: translateY(182px); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-    86%, 100% { transform: translateY(0); }
-  }
-
-  @keyframes crane-cable {
-    0%, 3% { transform: scaleY(8); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
-    19%, 25% { transform: scaleY(308); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-    40%, 64% { transform: scaleY(8); animation-timing-function: cubic-bezier(0.45, 0, 0.18, 1); }
-    76%, 80% { transform: scaleY(190); animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-    86%, 100% { transform: scaleY(8); }
-  }
-
-  /*
-   * The pendulum. The load lags on acceleration, overshoots when the trolley
-   * stops, then settles in a decaying oscillation. Amplitudes fall roughly by
-   * half each swing, which is what reads as mass rather than wobble.
-   */
-  @keyframes crane-swing {
-    0%, 46% { transform: rotate(0deg); }
-    52% { transform: rotate(3.1deg); }
-    59% { transform: rotate(2.2deg); }
-    62% { transform: rotate(-2.4deg); }
-    66% { transform: rotate(1.35deg); }
-    70% { transform: rotate(-0.7deg); }
-    74% { transform: rotate(0.3deg); }
-    78%, 86% { transform: rotate(0deg); }
-    91% { transform: rotate(-2.9deg); }
-    95% { transform: rotate(1.5deg); }
-    98% { transform: rotate(-0.6deg); }
-    100% { transform: rotate(0deg); }
-  }
-
-  /*
-   * Pointer control.
+   * Parallax.
    *
-   * The class is added by CraneCursor once it has confirmed a fine pointer and
-   * no reduced-motion preference. Until then — and forever, on a phone — the
-   * timed cycle above runs untouched, so the crane is never parked waiting to
-   * be discovered.
-   *
-   * The easing is done in the script, which writes a settled value each frame;
-   * a CSS transition on top would fight it and add lag on top of lag.
-   */
-  .crane-hero--pointer .crane-trolley,
-  .crane-hero--pointer .crane-swing {
-    /* The transforms themselves are written inline, per frame, by the script.
-       All this rule does is stand the timed cycle down. */
-    animation: none;
-  }
-
-  /*
-   * Scroll-linked hoist.
-   *
-   * The hook follows the scroll position rather than the clock: scroll down,
-   * the load goes down. Driven by a CSS scroll timeline, so it stays off the
-   * main thread — a scroll listener repositioning the hook every frame would
-   * undo the reason this hero is coded rather than filmed.
-   *
-   * Guarded twice. @supports because scroll timelines are not everywhere yet,
-   * and where they are missing the time-based cycle above simply continues.
-   * The reduced-motion query because a hook that tracks the scrollbar is
-   * motion, and someone who asked for less of it should not get this either.
+   * Driven by a CSS scroll timeline rather than a scroll listener, so it stays
+   * off the main thread — the same reason the hero it replaced was coded the
+   * way it was. Guarded twice: @supports because scroll timelines are not
+   * everywhere yet, and where they are missing the picture is simply still;
+   * and the reduced-motion query, because a photograph that slides under the
+   * page is motion and someone who asked for less of it should not get this.
    */
   @supports (animation-timeline: scroll()) {
     @media (prefers-reduced-motion: no-preference) {
-      .crane-hoist {
-        animation: crane-hoist-scroll linear both;
+      .skyline-hero__frame {
+        animation: skyline-drift linear both;
         animation-timeline: scroll(root block);
-        animation-range: 0 160vh;
-      }
-
-      .crane-cable {
-        animation: crane-cable-scroll linear both;
-        animation-timeline: scroll(root block);
-        animation-range: 0 160vh;
+        animation-range: 0 100svh;
+        will-change: transform;
       }
     }
   }
 
-  @keyframes crane-hoist-scroll {
-    from { transform: translateY(0); }
-    to { transform: translateY(614px); }
-  }
-
-  @keyframes crane-cable-scroll {
-    from { transform: scaleY(8); }
-    to { transform: scaleY(622); }
-  }
-
-  /* Translating by exactly half the doubled width puts the seam off-screen. */
-  @keyframes haze-drift {
-    from { transform: translateX(0); }
-    to { transform: translateX(-520px); }
+  @keyframes skyline-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, calc(var(--hero-parallax) * -1), 0);
+    }
   }
 
   /* --- Narrow viewports ------------------------------------------- */
   /*
-   * Reframed rather than scaled down: the crane slides right and up so it
-   * crops against the edge, which keeps the lattice at a readable weight and
-   * leaves the left of the frame open for the headline.
+   * A portrait crop of a 3:2 landscape throws away most of the width, and a
+   * centred one lands on open water. Biased left and up, which is where the
+   * pier, the palms and the skyline are.
    */
   @media (max-width: 768px) {
-    /*
-     * `slice` on a portrait viewport shows only the middle ~420 units of the
-     * 1600-unit frame, which is a stretch of bare jib — the mast falls outside
-     * it entirely and the crane stops being a crane. Sliding the structure
-     * left brings the mast back into that window with the jib running off the
-     * edge, which is the crop worth having. Sky, haze and scrim are untouched,
-     * so nothing exposes an edge.
-     */
-    .crane-near { transform: translateX(-328px); }
-    /* A shorter hold on a phone — the same gesture over less thumb travel. */
-    .crane-hero-pin { height: calc(100svh + 125vh); }
-  }
-
-  /* --- Reduced motion --------------------------------------------- */
-  /*
-   * Frozen on a composed frame — trolley part-way out with the hook down —
-   * rather than the cycle's first frame, which is an empty sky and a parked
-   * hook and reads as though something failed to load.
-   */
-  @media (prefers-reduced-motion: reduce) {
-    .crane-trolley,
-    .crane-swing,
-    .crane-hoist,
-    .crane-cable,
-    .haze {
-      animation: none;
-      will-change: auto;
+    .skyline-hero__img {
+      object-position: 42% 38%;
     }
-    .crane-trolley { transform: translateX(-300px); }
-    .crane-hoist { transform: translateY(212px); }
-    .crane-cable { transform: scaleY(220); }
-    .crane-swing { transform: rotate(-1.1deg); }
-    .crane-hero__cta { transition: none; }
-    /* No pin either — a stationary crane does not need 78vh of scroll to hold. */
-    .crane-hero-pin { height: auto; }
-    .crane-hero { position: relative; }
   }
 }

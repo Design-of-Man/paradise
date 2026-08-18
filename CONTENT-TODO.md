@@ -16,6 +16,21 @@ East Bay, North Beach Parking Plaza, 695 Central) plus the homepage hero and the
 eight sector pages. **31 projects and all four team members are still on
 generated placeholders.**
 
+### Homepage hero — a larger original would help
+
+The homepage now opens on the supplied photograph of downtown St. Petersburg at
+sunset, at `public/images/brand/st-pete-skyline.webp`. The file is **1200×800**,
+which is smaller than a full-bleed hero wants: it is upscaled about 1.2× on a
+1440px desktop and about 2.1× on a phone held in portrait, where the crop keeps
+only the middle of the frame. It is acceptable and it is visibly soft.
+
+**Send the original at 2400px wide or better and it is a straight file swap** —
+same path, same name, no code change.
+
+Worth confirming separately that the firm holds a commercial licence for the
+image. It has the look of a stock frame, and the homepage is the one page where
+that matters most.
+
 Both systems are already built and waiting. Adding an image is a two-step change
 with no layout risk, because nothing points at a file until you say it exists.
 
