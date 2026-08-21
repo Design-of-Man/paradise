@@ -97,7 +97,7 @@ export default async function InsightPage({
               {post.excerpt}
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-line-dark pt-6 text-[0.6875rem] uppercase tracking-[0.14em] text-white/45">
+            <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-line-dark pt-6 label text-white/45">
               <span>{post.author}</span>
               <span aria-hidden>·</span>
               <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -141,14 +141,14 @@ export default async function InsightPage({
           <Reveal>
             <SectionHeading eyebrow="Keep Reading" title="Related insights." />
           </Reveal>
-          <div className="mt-12 grid gap-px bg-line md:grid-cols-3">
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
             {related.map((p) => (
               <Link
                 key={p.slug}
                 href={`/insights/${p.slug}`}
-                className="group flex h-full flex-col bg-sand p-8 transition-colors hover:bg-paper"
+                className="rounded-xl group flex h-full flex-col bg-sand p-8 transition-colors hover:bg-paper"
               >
-                <div className="flex items-center gap-2.5 text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-accent">
+                <div className="flex items-center gap-2.5 label-sm text-accent">
                   <span>{p.category}</span>
                   <span aria-hidden className="text-mute">·</span>
                   <span className="text-mute nums">{p.readingTime} min</span>

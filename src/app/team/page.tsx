@@ -53,14 +53,14 @@ export default function TeamPage() {
       />
 
       <Section>
-        <div className="shell space-y-px bg-line">
+        <div className="shell space-y-4">
           {sortedTeam.map((member, i) => (
             <Reveal key={member.slug} delay={i * 70}>
-              <article className="grid gap-8 bg-paper p-8 md:grid-cols-[1fr_1.6fr] md:p-11">
+              <article className="card grid gap-8 p-8 md:grid-cols-[1fr_1.6fr] md:p-11">
                 <div>
                   <Link
                     href={`/team/${member.slug}`}
-                    className="relative mb-7 block aspect-4/5 max-w-[15rem] overflow-hidden border border-line bg-sand"
+                    className="relative mb-7 block aspect-4/5 max-w-[15rem] overflow-hidden rounded-xl border border-line bg-sand"
                   >
                     <TeamPortrait
                       member={member}
@@ -76,7 +76,7 @@ export default function TeamPage() {
                       {member.name}
                     </Link>
                   </h2>
-                  <p className="mt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <p className="mt-2 label text-accent">
                     {member.title}
                   </p>
                   {member.joined && (
@@ -105,7 +105,7 @@ export default function TeamPage() {
                       {member.affiliations.map((a) => (
                         <li
                           key={a}
-                          className="border border-line bg-sand px-2.5 py-1 text-xs text-ink-500"
+                          className="rounded-full border border-line bg-sand px-2.5 py-1 text-xs text-ink-500"
                         >
                           {a}
                         </li>
@@ -145,7 +145,7 @@ export default function TeamPage() {
             />
           </Reveal>
           <Reveal delay={120}>
-            <div className="border border-line-dark p-8 md:p-10">
+            <div className="rounded-xl border border-line-dark p-8 md:p-10">
               <h3 className="text-2xl text-white">Working with us</h3>
               <p className="mt-4 text-[0.9375rem] leading-relaxed text-white/60">
                 Call the office and you will reach someone who can answer the

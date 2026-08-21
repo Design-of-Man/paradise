@@ -53,10 +53,10 @@ export default function InsightsPage() {
           <Reveal>
             <Link
               href={`/insights/${lead.slug}`}
-              className="group grid gap-8 border border-line bg-paper p-8 transition-all duration-500 hover:border-accent/45 hover:shadow-[0_28px_60px_-32px_rgba(14,20,29,0.28)] md:grid-cols-[1fr_1.3fr] md:p-12"
+              className="card-outline card-lift group grid gap-8 p-8 md:grid-cols-[1fr_1.3fr] md:p-12"
             >
               <div>
-                <div className="flex items-center gap-2.5 text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-accent">
+                <div className="flex items-center gap-2.5 label-sm text-accent">
                   <span>Latest</span>
                   <span aria-hidden className="text-mute">·</span>
                   <span className="text-mute">{lead.category}</span>
@@ -67,7 +67,7 @@ export default function InsightsPage() {
               </div>
               <div className="flex flex-col justify-between">
                 <p className="text-[1.0625rem] leading-relaxed text-ink-500">{lead.excerpt}</p>
-                <div className="mt-8 flex items-center gap-3 text-[0.6875rem] uppercase tracking-[0.14em] text-mute">
+                <div className="mt-8 flex items-center gap-3 label text-mute">
                   <time dateTime={lead.date}>{formatDate(lead.date)}</time>
                   <span aria-hidden>·</span>
                   <span className="nums">{lead.readingTime} min read</span>
@@ -81,14 +81,14 @@ export default function InsightsPage() {
       {/* Remaining articles */}
       <Section>
         <div className="shell">
-          <div className="grid gap-px bg-line md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((post, i) => (
               <Reveal key={post.slug} delay={(i % 3) * 70}>
                 <Link
                   href={`/insights/${post.slug}`}
-                  className="group flex h-full flex-col bg-paper p-8 transition-colors duration-400 hover:bg-sand"
+                  className="card card-lift group flex h-full flex-col p-8"
                 >
-                  <div className="flex items-center gap-2.5 text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-accent">
+                  <div className="flex items-center gap-2.5 label-sm text-accent">
                     <span>{post.category}</span>
                     <span aria-hidden className="text-mute">·</span>
                     <span className="text-mute nums">{post.readingTime} min</span>
@@ -101,7 +101,7 @@ export default function InsightsPage() {
                   </p>
                   <time
                     dateTime={post.date}
-                    className="mt-7 text-[0.6875rem] uppercase tracking-[0.14em] text-mute"
+                    className="mt-7 label text-mute"
                   >
                     {formatDate(post.date)}
                   </time>

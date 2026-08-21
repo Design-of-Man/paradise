@@ -112,13 +112,13 @@ export default function PortfolioPage() {
             />
           </Reveal>
 
-          <div className="mt-14 space-y-px bg-line">
+          <div className="mt-14 space-y-4">
             {byState.map((group) => (
               <Reveal key={group.state}>
-                <div className="grid gap-6 bg-sand p-8 md:grid-cols-[14rem_1fr] md:items-start md:p-10">
+                <div className="rounded-xl grid gap-6 bg-sand p-8 md:grid-cols-[14rem_1fr] md:items-start md:p-10">
                   <div>
                     <h3 className="text-2xl">{group.stateName}</h3>
-                    <p className="mt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-mute nums">
+                    <p className="mt-2 label text-mute nums">
                       {group.items.length}{" "}
                       {group.items.length === 1 ? "project" : "projects"}
                     </p>

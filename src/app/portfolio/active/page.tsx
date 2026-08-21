@@ -136,10 +136,10 @@ export default function ActivePage() {
             />
           </Reveal>
 
-          <div className="mt-14 grid gap-px bg-line md:grid-cols-3">
+          <div className="mt-14 grid gap-4 md:grid-cols-3">
             {looking.map((item, i) => (
               <Reveal key={item.title} delay={i * 70}>
-                <div className="flex h-full flex-col bg-paper p-8 md:p-9">
+                <div className="card flex h-full flex-col p-8 md:p-9">
                   <h3 className="text-2xl">{item.title}</h3>
                   <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-ink-500">
                     {item.body}
@@ -166,10 +166,10 @@ export default function ActivePage() {
             />
           </Reveal>
 
-          <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {criteria.map((c, i) => (
               <Reveal key={c.title} delay={(i % 3) * 70}>
-                <div className="h-full bg-ink p-8">
+                <div className="rounded-xl h-full bg-ink p-8">
                   <span className="font-display text-sm text-accent nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -181,7 +181,7 @@ export default function ActivePage() {
           </div>
 
           <Reveal>
-            <div className="mt-14 border border-line-dark p-8 md:p-10">
+            <div className="mt-14 rounded-xl border border-line-dark p-8 md:p-10">
               <h3 className="text-2xl text-white">Have a site?</h3>
               <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-white/60">
                 Send the address or parcel number, approximate acreage, current
@@ -219,13 +219,13 @@ export default function ActivePage() {
               <Reveal key={m.slug} delay={i * 70}>
                 <Link
                   href={`/markets/${m.slug}`}
-                  className="group flex h-full flex-col border border-line bg-paper p-8 transition-all duration-400 hover:border-accent/45"
+                  className="card-outline card-lift group flex h-full flex-col p-8"
                 >
                   <h3 className="text-2xl transition-colors group-hover:text-accent">
                     {m.stateName}
                   </h3>
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-ink-500">{m.summary}</p>
-                  <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-line pt-4 text-[0.6875rem] uppercase tracking-[0.1em] text-mute">
+                  <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-line pt-4 label text-mute">
                     {m.submarkets.slice(0, 4).map((s) => (
                       <span key={s}>{s}</span>
                     ))}

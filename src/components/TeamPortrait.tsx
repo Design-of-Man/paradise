@@ -45,7 +45,7 @@ export function TeamPortrait({
     .join("");
 
   // Three restrained tints drawn from the brand palette.
-  const tints = ["#eef2e6", "#e9eef2", "#f2eee6"];
+  const tints = ["#eef3e6", "#e8eeef", "#f0f2ef"];
   const tint = tints[hash(member.slug) % tints.length];
 
   return (
@@ -54,7 +54,7 @@ export function TeamPortrait({
       className={`flex size-full items-center justify-center ${className ?? ""}`}
       style={{ backgroundColor: tint }}
     >
-      <span className="font-display text-5xl tracking-tight text-ink/25">{initials}</span>
+      <span className="display-tight text-5xl tracking-tight text-ink/25">{initials}</span>
     </div>
   );
 }

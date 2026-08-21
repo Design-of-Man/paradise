@@ -48,26 +48,26 @@ export default function MarketsPage() {
       />
 
       <Section>
-        <div className="shell space-y-px bg-line">
+        <div className="shell space-y-4">
           {markets.map((market, i) => {
             const count = counts.find((c) => c.state === market.state)?.items.length ?? 0;
             return (
               <Reveal key={market.slug} delay={i * 70}>
                 <Link
                   href={`/markets/${market.slug}`}
-                  className="group grid gap-8 bg-paper p-8 transition-colors duration-400 hover:bg-sand md:grid-cols-[1fr_1.4fr] md:p-11"
+                  className="card card-lift group grid gap-8 p-8 md:grid-cols-[1fr_1.4fr] md:p-11"
                 >
                   <div>
                     <div className="flex items-baseline gap-4">
                       <h2 className="text-3xl transition-colors group-hover:text-accent">
                         {market.stateName}
                       </h2>
-                      <span className="font-display text-3xl text-accent/30 nums">
+                      <span className="display-tight text-3xl text-accent/30 nums">
                         {String(count).padStart(2, "0")}
                       </span>
                     </div>
                     <p className="mt-2 text-sm font-medium text-accent/80">{market.headline}</p>
-                    <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1.5 text-[0.6875rem] uppercase tracking-[0.1em] text-mute">
+                    <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1.5 label text-mute">
                       {market.submarkets.map((s) => (
                         <span key={s}>{s}</span>
                       ))}

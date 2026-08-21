@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Source_Serif_4, Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Header } from "@/components/Header";
@@ -9,19 +9,22 @@ import { RevealScript } from "@/components/RevealScript";
 import { site } from "@/data/site";
 import { BASE_URL, jsonLdGraph, organizationSchema, websiteSchema } from "@/lib/seo";
 
-// Source Serif 4 is used for display type: an institutional transitional serif
-// with conventional letterforms — notably a plain `f` and `j`, without the
-// hooked Windsor-style descenders that made the previous face read as quirky.
-const display = Source_Serif_4({
+// One family carries the whole site. Geist is a geometric grotesque with a
+// tall x-height and near-flat terminals — it holds up at the -0.045em tracking
+// the display sizes are set at, which is where the previous serif fell apart.
+const sans = Geist({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-display-family",
+  variable: "--font-geist",
 });
 
-const sans = Inter({
+// Geist Mono is not decoration. Every label on the site — eyebrows, statistic
+// captions, dates, the coordinates in the hero — is set in it at uppercase,
+// and that contrast against the tight display type is most of the look.
+const mono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -66,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e141d",
+  themeColor: "#0b0f0b",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -74,7 +77,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <JsonLd data={jsonLdGraph(organizationSchema(), websiteSchema())} />

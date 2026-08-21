@@ -46,14 +46,14 @@ export default function ServicesPage() {
       />
 
       <Section>
-        <div className="shell space-y-px bg-line">
+        <div className="shell space-y-4">
           {sortedServices.map((service, i) => (
             <Reveal key={service.slug} delay={i < 3 ? i * 70 : 0}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group grid gap-8 bg-paper p-8 transition-colors duration-400 hover:bg-sand md:grid-cols-[5rem_1.3fr_1fr] md:items-start md:p-11"
+                className="card card-lift group grid gap-8 p-8 md:grid-cols-[5rem_1.3fr_1fr] md:items-start md:p-11"
               >
-                <span className="font-display text-4xl text-accent/35 nums">
+                <span className="display-tight text-4xl text-accent/35 nums">
                   {String(service.order).padStart(2, "0")}
                 </span>
 
@@ -79,13 +79,13 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="border-l border-line pl-6 md:pl-8">
-                  <h3 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <h3 className="label-sm text-accent">
                     What you get
                   </h3>
                   <ul className="mt-4 space-y-2.5">
                     {service.deliverables.map((d) => (
                       <li key={d.title} className="flex gap-2.5 text-sm text-ink-500">
-                        <span aria-hidden className="mt-2 block size-1 shrink-0 bg-accent" />
+                        <span aria-hidden className="mt-[0.45rem] block size-1.5 shrink-0 rounded-full bg-accent-bright" />
                         {d.title}
                       </li>
                     ))}

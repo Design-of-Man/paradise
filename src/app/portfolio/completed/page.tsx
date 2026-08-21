@@ -79,11 +79,11 @@ export default function CompletedPage() {
             <SectionHeading eyebrow="Chronology" title="In the order they opened." />
           </Reveal>
 
-          <div className="mt-14 space-y-px bg-line">
+          <div className="mt-14 space-y-4">
             {decades.map((group) => (
               <Reveal key={group.decade}>
-                <div className="grid gap-6 bg-sand p-8 md:grid-cols-[8rem_1fr] md:items-start md:p-10">
-                  <h3 className="font-display text-3xl text-accent nums">{group.decade}</h3>
+                <div className="rounded-xl grid gap-6 bg-sand p-8 md:grid-cols-[8rem_1fr] md:items-start md:p-10">
+                  <h3 className="display-tight text-3xl text-accent nums">{group.decade}</h3>
                   <ul className="space-y-3">
                     {group.items.map((p) => (
                       <li key={p.slug} className="flex flex-wrap items-baseline gap-x-3">

@@ -144,8 +144,8 @@ export default async function ProjectPage({
       <Section className="!pt-14">
         <div className="shell grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <Reveal>
-            <aside className="border border-line bg-sand p-8 md:p-9 lg:sticky lg:top-28">
-              <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <aside className="rounded-xl border border-line bg-sand p-8 md:p-9 lg:sticky lg:top-28">
+              <h2 className="label-sm text-accent">
                 Project Facts
               </h2>
               <dl className="mt-7 space-y-px">
@@ -154,7 +154,7 @@ export default async function ProjectPage({
                     key={f.label}
                     className="flex items-baseline justify-between gap-4 border-b border-line pb-3 pt-3 first:pt-0"
                   >
-                    <dt className="text-xs uppercase tracking-[0.1em] text-mute">{f.label}</dt>
+                    <dt className="label-sm text-mute">{f.label}</dt>
                     <dd className="text-right text-[0.9375rem] font-medium text-ink nums">
                       {f.value}
                     </dd>
@@ -166,14 +166,14 @@ export default async function ProjectPage({
                 <div className="mt-8">
                   {/* Completed centres list the roster as published at opening,
                       which for older projects includes since-departed brands. */}
-                  <h3 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <h3 className="label-sm text-accent">
                     {project.status === "completed" ? "Tenants at Opening" : "Notable Tenants"}
                   </h3>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {project.tenants.map((t) => (
                       <li
                         key={t}
-                        className="border border-line bg-paper px-2.5 py-1 text-xs text-ink-500"
+                        className="rounded-full border border-line bg-paper px-2.5 py-1 text-xs text-ink-500"
                       >
                         {t}
                       </li>
@@ -193,8 +193,8 @@ export default async function ProjectPage({
           <Reveal delay={100}>
             <div>
               {project.highlights && (
-                <div className="mb-12 border-l-2 border-accent bg-sand p-7 md:p-8">
-                  <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                <div className="mb-12 rounded-xl border-l-4 border-accent bg-sand p-7 md:p-8">
+                  <h2 className="label-sm text-accent">
                     Project Highlights
                   </h2>
                   <ul className="mt-5 space-y-3">
@@ -217,8 +217,8 @@ export default async function ProjectPage({
               </div>
 
               {market && (
-                <div className="mt-12 border-l-2 border-accent bg-sand p-7">
-                  <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                <div className="mt-12 rounded-xl border-l-4 border-accent bg-sand p-7">
+                  <p className="label-sm text-accent">
                     Market
                   </p>
                   <h2 className="mt-3 text-xl">{market.stateName}</h2>
@@ -236,7 +236,7 @@ export default async function ProjectPage({
                   {project.gallery.map((src, i) => (
                     <figure
                       key={src}
-                      className="relative aspect-4/3 overflow-hidden border border-line bg-sand"
+                      className="relative aspect-4/3 overflow-hidden rounded-xl border border-line bg-sand"
                     >
                       <Image
                         src={src}

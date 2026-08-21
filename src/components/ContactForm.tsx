@@ -95,7 +95,7 @@ export function ContactForm({
     return (
       <div
         role="status"
-        className="border border-accent/40 bg-sand p-8 md:p-10"
+        className="rounded-2xl border border-accent/40 bg-sand p-8 md:p-10"
       >
         <h3 className="text-2xl">Message received.</h3>
         <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-500">
@@ -134,7 +134,7 @@ export function ContactForm({
       <div>
         <label
           htmlFor="topic"
-          className="block text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-mute"
+          className="block label-sm text-mute"
         >
           What is this about?
         </label>
@@ -142,7 +142,7 @@ export function ContactForm({
           id="topic"
           name="topic"
           defaultValue={defaultTopic ?? topics[0].value}
-          className="mt-2.5 w-full appearance-none border border-line bg-paper px-4 py-3 text-[0.9375rem] text-ink transition-colors focus:border-accent focus:outline-none"
+          className="mt-2.5 w-full appearance-none rounded-lg border border-line bg-paper px-4 py-3 text-[0.9375rem] text-ink transition-colors focus:border-accent focus:outline-none"
         >
           {topics.map((t) => (
             <option key={t.value} value={t.value}>
@@ -155,7 +155,7 @@ export function ContactForm({
       <div>
         <label
           htmlFor="message"
-          className="block text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-mute"
+          className="block label-sm text-mute"
         >
           Details
         </label>
@@ -169,7 +169,7 @@ export function ContactForm({
               ? "Your use, square footage needed, target market and timing."
               : "Location, acreage, zoning, timing — whatever you have."
           }
-          className="mt-2.5 w-full border border-line bg-paper px-4 py-3 text-[0.9375rem] text-ink transition-colors placeholder:text-mute/70 focus:border-accent focus:outline-none"
+          className="mt-2.5 w-full rounded-lg border border-line bg-paper px-4 py-3 text-[0.9375rem] text-ink transition-colors placeholder:text-mute/70 focus:border-accent focus:outline-none"
         />
       </div>
 
@@ -180,7 +180,7 @@ export function ContactForm({
       )}
 
       {status === "unconfigured" && (
-        <div role="alert" className="border-l-2 border-accent bg-sand px-4 py-4 text-sm text-ink-500">
+        <div role="alert" className="rounded-xl border-l-2 border-accent bg-sand px-4 py-4 text-sm text-ink-500">
           <p className="font-semibold text-ink">Email delivery is not set up on this deployment yet.</p>
           <p className="mt-2">
             Your message has not been sent. Use the button below to send it directly from
@@ -232,7 +232,7 @@ function Field({
     <div>
       <label
         htmlFor={name}
-        className="block text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-mute"
+        className="block label-sm text-mute"
       >
         {label}
         {required && <span className="ml-1 text-accent">*</span>}
@@ -243,7 +243,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="mt-2.5 w-full border border-line bg-paper px-4 py-3 text-[0.9375rem] text-ink transition-colors focus:border-accent focus:outline-none"
+        className="mt-2.5 w-full rounded-lg border border-line bg-paper px-4 py-3 text-[0.9375rem] text-ink transition-colors focus:border-accent focus:outline-none"
       />
     </div>
   );

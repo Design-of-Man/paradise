@@ -43,7 +43,7 @@ export function Footer() {
               </a>
               <a
                 href={`tel:${site.phone}`}
-                className="link-underline block font-semibold text-white nums"
+                className="link-underline block font-mono text-white nums"
               >
                 {site.phoneDisplay}
               </a>
@@ -61,7 +61,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Paradise Ventures on LinkedIn"
-                className="grid size-10 place-items-center border border-line-dark text-white/65 transition-colors hover:border-accent hover:text-accent"
+                className="grid size-11 place-items-center rounded-full border border-line-dark text-white/65 transition-colors hover:border-accent-bright hover:bg-accent-bright hover:text-ink"
               >
                 <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
                   <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.5 0h3.8v1.65h.05a4.17 4.17 0 0 1 3.75-2.05c4 0 4.75 2.6 4.75 6V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.46-2.2 2.96V21h-4V9Z" />
@@ -72,7 +72,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Paradise Ventures on Facebook"
-                className="grid size-10 place-items-center border border-line-dark text-white/65 transition-colors hover:border-accent hover:text-accent"
+                className="grid size-11 place-items-center rounded-full border border-line-dark text-white/65 transition-colors hover:border-accent-bright hover:bg-accent-bright hover:text-ink"
               >
                 <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
                   <path d="M14 9V7.2c0-.9.2-1.3 1.5-1.3H17V3h-2.6C11.2 3 10 4.4 10 7v2H8v3h2v9h4v-9h2.7l.3-3H14Z" />
@@ -120,11 +120,11 @@ export function Footer() {
         </div>
 
         {/* Standing CTA */}
-        <div className="mt-16 grid gap-6 border-t border-line-dark pt-10 sm:grid-cols-2 sm:items-center">
-          <p className="font-display text-2xl text-white">
+        <div className="mt-20 grid gap-8 border-t border-line-dark pt-14 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+          <p className="display-tight max-w-2xl text-(length:--text-display-sm) text-white">
             Have a site, a space, or a project in mind?
           </p>
-          <div className="flex flex-wrap gap-3 sm:justify-end">
+          <div className="flex flex-wrap gap-3 lg:justify-end">
             <Link href="/contact" className="btn btn-accent">
               Start a Conversation
             </Link>
@@ -134,7 +134,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-line-dark pt-8 text-xs text-white/40">
+        <div className="mt-14 border-t border-line-dark pt-8 font-mono text-xs text-white/40">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p>
               © {year} {site.legalName}. All rights reserved.
@@ -165,9 +165,7 @@ export function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-accent">
-        {title}
-      </h2>
+      <h2 className="label text-accent-bright">{title}</h2>
       <ul className="mt-5 space-y-2.5">{children}</ul>
     </div>
   );
