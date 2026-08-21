@@ -95,14 +95,14 @@ export default function LeasingPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="space-y-px bg-line">
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <aside className="space-y-4">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   Leasing Contact
                 </h2>
                 {jon && (
                   <>
-                    <p className="mt-5 font-display text-2xl text-ink">{jon.name}</p>
+                    <p className="mt-5 display-tight text-2xl text-ink">{jon.name}</p>
                     <p className="mt-1 text-sm text-mute">{jon.title}</p>
                     {jon.email && (
                       <a
@@ -122,8 +122,8 @@ export default function LeasingPage() {
                 </a>
               </div>
 
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   What we lease
                 </h2>
                 <ul className="mt-5 space-y-3">
@@ -134,15 +134,15 @@ export default function LeasingPage() {
                     "Ground lease and build-to-suit pads",
                   ].map((item) => (
                     <li key={item} className="flex gap-2.5 text-sm text-ink-500">
-                      <span aria-hidden className="mt-2 block size-1 shrink-0 bg-accent" />
+                      <span aria-hidden className="mt-[0.45rem] block size-1.5 shrink-0 rounded-full bg-accent-bright" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   Brokers
                 </h2>
                 <p className="mt-5 text-sm leading-relaxed text-ink-500">
@@ -166,7 +166,7 @@ export default function LeasingPage() {
             />
           </Reveal>
 
-          <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 t: "Anchor-driven traffic",
@@ -186,7 +186,7 @@ export default function LeasingPage() {
               },
             ].map((item, i) => (
               <Reveal key={item.t} delay={(i % 4) * 60}>
-                <div className="h-full bg-ink p-8">
+                <div className="rounded-xl h-full bg-ink p-8">
                   <span className="font-display text-sm text-accent nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -239,17 +239,17 @@ export default function LeasingPage() {
           <Reveal>
             <SectionHeading eyebrow="Questions" title="Leasing, answered." />
           </Reveal>
-          <div className="mt-12 space-y-px bg-line">
+          <div className="mt-12 space-y-4">
             {leasingFaqs.map((f) => (
-              <details key={f.q} className="group bg-paper">
-                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.0625rem] font-medium text-ink transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+              <details key={f.q} className="card group px-6 open:bg-sand-deep/60">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[1.0625rem] font-medium text-ink transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <span aria-hidden className="relative mt-2 block size-3 shrink-0 text-accent">
                     <span className="absolute left-0 top-1/2 block h-px w-full bg-current" />
                     <span className="absolute left-1/2 top-0 block h-full w-px bg-current transition-transform duration-300 group-open:rotate-90" />
                   </span>
                 </summary>
-                <p className="pb-6 pr-10 text-[0.9375rem] leading-relaxed text-ink-500">{f.a}</p>
+                <p className="pb-7 pr-10 text-[0.9375rem] leading-relaxed text-ink-500">{f.a}</p>
               </details>
             ))}
           </div>

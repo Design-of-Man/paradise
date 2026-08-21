@@ -28,7 +28,7 @@ export function renderOgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#0e141d",
+          backgroundColor: "#0b0f0b",
           padding: "72px 80px",
           position: "relative",
         }}

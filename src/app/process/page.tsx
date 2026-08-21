@@ -126,18 +126,18 @@ export default function ProcessPage() {
 
       <Section>
         <div className="shell">
-          <ol className="space-y-px bg-line">
+          <ol className="space-y-4">
             {stages.map((stage, i) => (
               <Reveal key={stage.n} delay={i < 4 ? i * 60 : 0}>
-                <li className="grid gap-8 bg-paper p-8 md:grid-cols-[5rem_1.6fr_1fr] md:items-start md:p-11">
+                <li className="card grid gap-8 p-8 md:grid-cols-[5rem_1.6fr_1fr] md:items-start md:p-11">
                   <div>
-                    <span className="font-display text-4xl text-accent/35 nums">{stage.n}</span>
+                    <span className="display-tight text-4xl text-accent/35 nums">{stage.n}</span>
                   </div>
 
                   <div>
                     <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                       <h2 className="text-2xl">{stage.title}</h2>
-                      <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-mute">
+                      <span className="label text-mute">
                         {stage.duration}
                       </span>
                     </div>
@@ -147,13 +147,13 @@ export default function ProcessPage() {
                   </div>
 
                   <div className="border-l border-line pl-6 md:pl-8">
-                    <h3 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    <h3 className="label-sm text-accent">
                       Outputs
                     </h3>
                     <ul className="mt-4 space-y-2">
                       {stage.outputs.map((o) => (
                         <li key={o} className="flex gap-2.5 text-sm text-ink-500">
-                          <span aria-hidden className="mt-2 block size-1 shrink-0 bg-accent" />
+                          <span aria-hidden className="mt-[0.45rem] block size-1.5 shrink-0 rounded-full bg-accent-bright" />
                           {o}
                         </li>
                       ))}
@@ -176,10 +176,10 @@ export default function ProcessPage() {
             />
           </Reveal>
 
-          <dl className="mt-14 grid gap-px bg-white/10 md:grid-cols-2">
+          <dl className="mt-14 grid gap-4 md:grid-cols-2">
             {processFaqs.map((f, i) => (
               <Reveal key={f.q} delay={(i % 2) * 70}>
-                <div className="h-full bg-ink p-8 md:p-9">
+                <div className="rounded-xl h-full bg-ink p-8 md:p-9">
                   <dt className="text-lg text-white">{f.q}</dt>
                   <dd className="mt-4 text-sm leading-relaxed text-white/55">{f.a}</dd>
                 </div>

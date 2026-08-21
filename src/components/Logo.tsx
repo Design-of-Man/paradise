@@ -18,14 +18,12 @@ export function Logo({
     <span className={`inline-flex items-center gap-3 ${className ?? ""}`}>
       <Mark className="h-8 w-auto shrink-0" />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.0625rem] font-medium tracking-[0.01em] uppercase">
+        <span className="font-display text-[1.0625rem] font-medium uppercase tracking-[0.06em]">
           Paradise
         </span>
-        <span className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.42em] opacity-70">
-          Ventures
-        </span>
+        <span className="label-sm mt-1 tracking-[0.38em] opacity-70">Ventures</span>
         {showTagline && (
-          <span className="mt-2 text-[0.5625rem] font-semibold uppercase tracking-[0.2em] opacity-50">
+          <span className="label-sm mt-2 tracking-[0.16em] opacity-50">
             Retail Development · Est. 1988
           </span>
         )}

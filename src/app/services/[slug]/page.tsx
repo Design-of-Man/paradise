@@ -99,8 +99,8 @@ export default async function ServiceDetailPage({
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="border border-line bg-sand p-8 md:p-10">
-              <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <aside className="rounded-xl border border-line bg-sand p-8 md:p-10">
+              <h2 className="label-sm text-accent">
                 What you get
               </h2>
               <dl className="mt-7 space-y-6">
@@ -136,10 +136,10 @@ export default async function ServiceDetailPage({
               />
             </Reveal>
 
-            <ol className="mt-14 grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">
+            <ol className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {service.phases.map((phase, i) => (
                 <Reveal key={phase.title} delay={(i % 4) * 60}>
-                  <li className="flex h-full flex-col bg-ink p-8">
+                  <li className="rounded-xl flex h-full flex-col bg-ink p-8">
                     <span className="font-display text-sm text-accent nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -168,10 +168,10 @@ export default async function ServiceDetailPage({
             <SectionHeading eyebrow="Questions" title={`${service.name}, answered.`} />
           </Reveal>
 
-          <dl className="mt-12 space-y-px bg-line">
+          <dl className="mt-12 space-y-4">
             {service.faqs.map((f, i) => (
               <Reveal key={f.q} delay={i * 60}>
-                <div className="grid gap-4 bg-sand p-8 md:grid-cols-[1fr_1.4fr] md:p-10">
+                <div className="rounded-xl grid gap-4 bg-sand p-8 md:grid-cols-[1fr_1.4fr] md:p-10">
                   <dt className="text-lg">{f.q}</dt>
                   <dd className="text-[0.9375rem] leading-relaxed text-ink-500">{f.a}</dd>
                 </div>
@@ -210,12 +210,12 @@ export default async function ServiceDetailPage({
           <Reveal>
             <SectionHeading eyebrow="Also Available" title="The rest of what we do." />
           </Reveal>
-          <div className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {others.map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="group bg-sand p-7 transition-colors hover:bg-paper"
+                className="rounded-xl group bg-sand p-7 transition-colors hover:bg-paper"
               >
                 <span className="font-display text-sm text-accent nums">
                   {String(s.order).padStart(2, "0")}

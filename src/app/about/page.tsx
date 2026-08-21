@@ -149,7 +149,7 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="border border-line bg-sand">
+            <aside className="rounded-xl border border-line bg-sand">
               <SiteVisual seed="about-paradise-ventures" className="aspect-4/3 w-full" />
               <div className="grid grid-cols-2 gap-y-8 p-8">
                 <Stat value={`${site.stats.yearsOperating}`} label="Years Operating" />
@@ -185,11 +185,11 @@ export default function AboutPage() {
             />
           </Reveal>
 
-          <ol className="mt-16 grid gap-px bg-white/10 md:grid-cols-3">
+          <ol className="mt-16 grid gap-4 md:grid-cols-3">
             {milestones.map((m, i) => (
               <Reveal key={m.year + m.title} delay={(i % 3) * 70}>
-                <li className="flex h-full flex-col bg-ink p-8">
-                  <span className="font-display text-3xl text-accent nums">{m.year}</span>
+                <li className="rounded-xl flex h-full flex-col bg-ink p-8">
+                  <span className="display-tight text-3xl text-accent nums">{m.year}</span>
                   <h3 className="mt-4 text-lg text-white">{m.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-white/55">{m.body}</p>
                 </li>
@@ -210,11 +210,11 @@ export default function AboutPage() {
             />
           </Reveal>
 
-          <div className="mt-14 space-y-px bg-line">
+          <div className="mt-14 space-y-4">
             {decades.map((group) => (
               <Reveal key={group.decade}>
-                <div className="grid gap-6 bg-sand p-8 md:grid-cols-[8rem_1fr] md:items-start md:p-10">
-                  <h3 className="font-display text-3xl text-accent nums">{group.decade}</h3>
+                <div className="rounded-xl grid gap-6 bg-sand p-8 md:grid-cols-[8rem_1fr] md:items-start md:p-10">
+                  <h3 className="display-tight text-3xl text-accent nums">{group.decade}</h3>
                   <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
                     {group.items.map((p) => (
                       <li key={p.slug}>
@@ -252,15 +252,15 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {sortedTeam.map((m, i) => (
               <Reveal key={m.slug} delay={i * 70}>
                 <Link
                   href={`/team/${m.slug}`}
-                  className="group flex h-full flex-col bg-paper p-7 transition-colors hover:bg-sand"
+                  className="card card-lift group flex h-full flex-col p-7"
                 >
                   <h3 className="text-lg transition-colors group-hover:text-accent">{m.name}</h3>
-                  <p className="mt-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-accent">
+                  <p className="mt-1.5 label text-accent">
                     {m.title}
                   </p>
                   <p className="mt-4 text-sm leading-relaxed text-ink-500">{m.blurb}</p>

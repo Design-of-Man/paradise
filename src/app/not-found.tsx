@@ -39,7 +39,7 @@ export default function NotFound() {
       <Section>
         <div className="shell grid gap-12 md:grid-cols-3">
           <div>
-            <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <h2 className="label-sm text-accent">
               Services
             </h2>
             <ul className="mt-5 space-y-2.5">
@@ -57,7 +57,7 @@ export default function NotFound() {
           </div>
 
           <div>
-            <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <h2 className="label-sm text-accent">
               Company
             </h2>
             <ul className="mt-5 space-y-2.5">
@@ -82,7 +82,7 @@ export default function NotFound() {
           </div>
 
           <div>
-            <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <h2 className="label-sm text-accent">
               Talk to someone
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-ink-500">
@@ -91,7 +91,7 @@ export default function NotFound() {
             </p>
             <a
               href={`tel:${site.phone}`}
-              className="link-underline mt-4 block font-display text-2xl text-ink nums"
+              className="link-underline mt-4 block display-tight text-2xl text-ink nums"
             >
               {site.phoneDisplay}
             </a>

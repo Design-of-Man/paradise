@@ -91,9 +91,9 @@ export default async function ContactPage({
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="space-y-px bg-line">
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <aside className="space-y-4">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   Office
                 </h2>
                 <address className="mt-5 space-y-4 not-italic">
@@ -109,7 +109,7 @@ export default async function ContactPage({
                   </a>
                   <a
                     href={`tel:${site.phone}`}
-                    className="link-underline block font-display text-2xl text-ink nums"
+                    className="link-underline block display-tight text-2xl text-ink nums"
                   >
                     {site.phoneDisplay}
                   </a>
@@ -122,8 +122,8 @@ export default async function ContactPage({
                 </address>
               </div>
 
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   Hours
                 </h2>
                 <p className="mt-5 text-[0.9375rem] text-ink-500">
@@ -133,8 +133,8 @@ export default async function ContactPage({
                 </p>
               </div>
 
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   Direct Contacts
                 </h2>
                 <ul className="mt-5 space-y-4">
@@ -160,8 +160,8 @@ export default async function ContactPage({
                 </ul>
               </div>
 
-              <div className="bg-sand p-8">
-                <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <div className="rounded-xl bg-sand p-8">
+                <h2 className="label-sm text-accent">
                   Tenants
                 </h2>
                 <p className="mt-5 text-sm leading-relaxed text-ink-500">
@@ -188,10 +188,10 @@ export default async function ContactPage({
             />
           </Reveal>
 
-          <div className="mt-14 grid gap-px bg-line md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {routes.map((r, i) => (
               <Reveal key={r.title} delay={(i % 4) * 60}>
-                <div className="flex h-full flex-col bg-sand p-8">
+                <div className="rounded-xl flex h-full flex-col bg-sand p-8">
                   <h3 className="text-lg">{r.title}</h3>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-500">{r.body}</p>
                   <Link

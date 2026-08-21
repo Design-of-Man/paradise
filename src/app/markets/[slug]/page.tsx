@@ -92,22 +92,22 @@ export default async function MarketPage({
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="border border-line bg-sand p-8 md:p-9">
-              <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            <aside className="rounded-xl border border-line bg-sand p-8 md:p-9">
+              <h2 className="label-sm text-accent">
                 Submarkets
               </h2>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {market.submarkets.map((s) => (
                   <li
                     key={s}
-                    className="border border-line bg-paper px-2.5 py-1 text-xs text-ink-500"
+                    className="rounded-full border border-line bg-paper px-2.5 py-1 text-xs text-ink-500"
                   >
                     {s}
                   </li>
                 ))}
               </ul>
 
-              <h2 className="mt-9 font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <h2 className="mt-9 label-sm text-accent">
                 Services in {market.stateName}
               </h2>
               <ul className="mt-5 space-y-2.5">
@@ -162,12 +162,12 @@ export default async function MarketPage({
           <Reveal>
             <SectionHeading eyebrow="Other Markets" title="Where else we build." />
           </Reveal>
-          <div className="mt-12 grid gap-px bg-line md:grid-cols-2">
+          <div className="mt-12 grid gap-4 md:grid-cols-2">
             {others.map((m) => (
               <Link
                 key={m.slug}
                 href={`/markets/${m.slug}`}
-                className="group bg-paper p-8 transition-colors hover:bg-sand md:p-9"
+                className="card card-lift group p-8 md:p-9"
               >
                 <h3 className="text-2xl transition-colors group-hover:text-accent">
                   {m.stateName}

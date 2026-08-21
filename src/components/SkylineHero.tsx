@@ -5,9 +5,7 @@ import Image from "next/image";
  *
  * Downtown St. Petersburg at sunset, shot across the bay from the pier — the
  * firm's own skyline, since the office is at 153 2nd Ave N in the Sundial
- * building a few hundred metres inside this frame. It replaces the coded crane
- * that stood here before; the tower crane still in the middle of the skyline is
- * the same idea told by the city rather than by an SVG.
+ * building a few hundred metres inside this frame.
  *
  * The photograph is the LCP element, so it is marked `priority` — Next emits a
  * preload for it in the head and the decode starts alongside the HTML rather
@@ -23,25 +21,47 @@ export function SkylineHero({
   eyebrow,
   headline,
   cta,
+  coords,
 }: {
   eyebrow: string;
   headline: string;
   cta: { label: string; href: string };
+  /** The office's own position, printed as a readout along the bottom rail. */
+  coords?: { lat: number; lng: number };
 }) {
   return (
     <section className="skyline-hero">
       {/*
-        Text first in the document, as it was under the crane. The reason is
-        weaker now that the artwork is one <img> rather than a few thousand
-        lattice members, but the headline is still the first thing that should
-        be parseable and the layering is done with position, not order.
+        Text first in the document. The headline is the first thing that should
+        be parseable, and the layering is done with position, not order.
       */}
       <div className="skyline-hero__content">
         <p className="skyline-hero__eyebrow">{eyebrow}</p>
         <h1 className="skyline-hero__headline">{headline}</h1>
-        <a className="skyline-hero__cta" href={cta.href}>
-          {cta.label}
-        </a>
+
+        <div className="skyline-hero__rail">
+          <a className="skyline-hero__cta" href={cta.href}>
+            {cta.label}
+            <svg viewBox="0 0 16 10" className="size-3" fill="none" aria-hidden>
+              <path d="M10.5 1L15 5l-4.5 4M15 5H1" stroke="currentColor" strokeWidth="1.6" />
+            </svg>
+          </a>
+
+          {coords && (
+            <p className="skyline-hero__coords" aria-hidden>
+              <span>
+                {Math.abs(coords.lat).toFixed(4)}
+                <sup>º</sup>
+                {coords.lat >= 0 ? "N" : "S"}
+              </span>
+              <span>
+                {Math.abs(coords.lng).toFixed(4)}
+                <sup>º</sup>
+                {coords.lng >= 0 ? "E" : "W"}
+              </span>
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="skyline-hero__art">

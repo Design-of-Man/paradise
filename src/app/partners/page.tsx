@@ -47,15 +47,15 @@ export default function PartnersPage() {
       />
 
       <Section>
-        <div className="shell space-y-px bg-line">
+        <div className="shell space-y-4">
           {sortedPartners.map((partner, i) => (
             <Reveal key={partner.slug} delay={i < 3 ? i * 70 : 0}>
               <Link
                 href={`/partners/${partner.slug}`}
-                className="group grid gap-8 bg-paper p-8 transition-colors duration-400 hover:bg-sand md:grid-cols-[1fr_1.5fr] md:p-11"
+                className="card card-lift group grid gap-8 p-8 md:grid-cols-[1fr_1.5fr] md:p-11"
               >
                 <div>
-                  <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <p className="label-sm text-accent">
                     {partner.category}
                   </p>
                   <h2 className="mt-3 text-3xl transition-colors group-hover:text-accent">
@@ -65,7 +65,7 @@ export default function PartnersPage() {
                     <p className="mt-3 text-sm font-medium text-ink-500">{partner.delivered}</p>
                   )}
                   {partner.image && (
-                    <div className="relative mt-6 aspect-4/3 overflow-hidden border border-line bg-sand">
+                    <div className="relative mt-6 aspect-4/3 overflow-hidden rounded-xl border border-line bg-sand">
                       <Image
                         src={partner.image}
                         alt={`${partner.imageSubject ?? partner.name} developed by Paradise Ventures`}

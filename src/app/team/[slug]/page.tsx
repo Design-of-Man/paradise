@@ -84,7 +84,7 @@ export default async function TeamMemberPage({
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="border border-line bg-sand">
+            <aside className="rounded-xl border border-line bg-sand">
               <div className="relative aspect-4/5 w-full overflow-hidden border-b border-line">
                 <TeamPortrait
                   member={member}
@@ -95,7 +95,7 @@ export default async function TeamMemberPage({
               <div className="p-8 md:p-9">
               <dl className="space-y-6">
                 <div>
-                  <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <dt className="label-sm text-accent">
                     Role
                   </dt>
                   <dd className="mt-2 text-[0.9375rem] text-ink">{member.title}</dd>
@@ -103,7 +103,7 @@ export default async function TeamMemberPage({
 
                 {member.joined && (
                   <div>
-                    <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    <dt className="label-sm text-accent">
                       With the firm since
                     </dt>
                     <dd className="mt-2 text-[0.9375rem] text-ink nums">{member.joined}</dd>
@@ -112,7 +112,7 @@ export default async function TeamMemberPage({
 
                 {member.education && (
                   <div>
-                    <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    <dt className="label-sm text-accent">
                       Education
                     </dt>
                     <dd className="mt-2 space-y-1.5">
@@ -127,7 +127,7 @@ export default async function TeamMemberPage({
 
                 {member.affiliations && (
                   <div>
-                    <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    <dt className="label-sm text-accent">
                       Affiliations
                     </dt>
                     <dd className="mt-2 space-y-1.5">
@@ -142,7 +142,7 @@ export default async function TeamMemberPage({
 
                 {member.boards && (
                   <div>
-                    <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    <dt className="label-sm text-accent">
                       Board service
                     </dt>
                     <dd className="mt-2 space-y-1.5">
@@ -156,7 +156,7 @@ export default async function TeamMemberPage({
                 )}
 
                 <div>
-                  <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <dt className="label-sm text-accent">
                     Contact
                   </dt>
                   <dd className="mt-2 space-y-1.5">
@@ -194,15 +194,15 @@ export default async function TeamMemberPage({
           <Reveal>
             <SectionHeading eyebrow="The Team" title="Who else you'll work with." />
           </Reveal>
-          <div className="mt-12 grid gap-px bg-line sm:grid-cols-3">
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
             {others.map((m) => (
               <Link
                 key={m.slug}
                 href={`/team/${m.slug}`}
-                className="group bg-sand p-8 transition-colors hover:bg-paper"
+                className="rounded-xl group bg-sand p-8 transition-colors hover:bg-paper"
               >
                 <h3 className="text-xl transition-colors group-hover:text-accent">{m.name}</h3>
-                <p className="mt-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-accent">
+                <p className="mt-1.5 label text-accent">
                   {m.title}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-ink-500">{m.blurb}</p>

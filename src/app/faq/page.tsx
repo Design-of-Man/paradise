@@ -47,7 +47,7 @@ export default function FaqPage() {
           {/* Group index */}
           <Reveal>
             <nav aria-label="FAQ sections" className="lg:sticky lg:top-28">
-              <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <h2 className="label-sm text-accent">
                 Sections
               </h2>
               <ul className="mt-5 space-y-2.5">
@@ -89,12 +89,12 @@ export default function FaqPage() {
                   {group}
                 </h2>
 
-                <div className="mt-7 space-y-px bg-line">
+                <div className="mt-7 space-y-4">
                   {faqs
                     .filter((f) => f.group === group)
                     .map((f) => (
-                      <details key={f.q} className="group bg-paper">
-                        <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.0625rem] font-medium text-ink transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+                      <details key={f.q} className="card group px-6 open:bg-sand-deep/60">
+                        <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[1.0625rem] font-medium text-ink transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
                           {f.q}
                           <span
                             aria-hidden
@@ -104,7 +104,7 @@ export default function FaqPage() {
                             <span className="absolute left-1/2 top-0 block h-full w-px bg-current transition-transform duration-300 group-open:rotate-90" />
                           </span>
                         </summary>
-                        <p className="pb-6 pr-10 text-[0.9375rem] leading-relaxed text-ink-500">
+                        <p className="pb-7 pr-10 text-[0.9375rem] leading-relaxed text-ink-500">
                           {f.a}
                         </p>
                       </details>

@@ -112,19 +112,19 @@ export default async function PartnerPage({
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="border border-line bg-sand p-8 md:p-9">
+            <aside className="rounded-xl border border-line bg-sand p-8 md:p-9">
               {partner.delivered && (
                 <>
-                  <h2 className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <h2 className="label-sm text-accent">
                     Track Record
                   </h2>
-                  <p className="mt-4 font-display text-2xl leading-snug text-ink">
+                  <p className="mt-4 display-tight text-2xl leading-snug text-ink">
                     {partner.delivered}
                   </p>
                 </>
               )}
 
-              <h2 className="mt-9 font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              <h2 className="mt-9 label-sm text-accent">
                 Relevant Services
               </h2>
               <ul className="mt-5 space-y-2.5">
@@ -221,14 +221,14 @@ export default async function PartnerPage({
           <Reveal>
             <SectionHeading eyebrow="Also" title="Other anchors and sectors." />
           </Reveal>
-          <div className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((p) => (
               <Link
                 key={p.slug}
                 href={`/partners/${p.slug}`}
-                className="group bg-paper p-7 transition-colors hover:bg-sand"
+                className="card card-lift group p-7"
               >
-                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                <p className="label-sm text-accent">
                   {p.category}
                 </p>
                 <h3 className="mt-3 text-lg transition-colors group-hover:text-accent">{p.name}</h3>

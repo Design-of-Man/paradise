@@ -26,7 +26,7 @@ export function SiteVisual({
   const bg = dark ? "#131b26" : "#efeae0";
   const lot = dark ? "#1b2430" : "#e5dfd2";
   const stroke = dark ? "rgba(255,255,255,0.13)" : "rgba(14,20,29,0.13)";
-  const building = dark ? "#f2eee6" : "#0e141d";
+  const building = dark ? "#f2f5f2" : "#0b0f0b";
   const accent = "#8cc63f";
 
   // Anchor building sits along the rear of the site, its width varying a little.

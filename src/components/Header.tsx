@@ -48,15 +48,17 @@ export function Header() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  // Before the first scroll the header floats over the page's dark hero; once
-  // the paper background fades in, everything switches back to ink.
-  const onDark = !scrolled && !open;
+  // The homepage is the only route that still opens on a full-bleed photograph;
+  // every interior page now opens on white with a rounded black panel below the
+  // header. So the white-on-photo treatment is scoped to `/` — anywhere else it
+  // would put white type on a white background.
+  const onDark = pathname === "/" && !scrolled && !open;
 
   return (
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-100 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-white"
       >
         Skip to content
       </a>
@@ -65,7 +67,7 @@ export function Header() {
         className={cx(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
           scrolled
-            ? "border-b border-line bg-paper/92 backdrop-blur-md"
+            ? "border-b border-line bg-paper/85 backdrop-blur-xl"
             : "border-b border-transparent",
         )}
       >
@@ -74,8 +76,6 @@ export function Header() {
             href="/"
             className={cx(
               "transition-opacity hover:opacity-70",
-              // Every page opens on a dark hero, so the header sits on ink
-              // until the first scroll lifts the paper background into place.
               onDark ? "text-white" : "text-ink",
             )}
             aria-label={`${site.name} — home`}
@@ -96,14 +96,14 @@ export function Header() {
                   href={item.href}
                   aria-expanded={item.children ? openGroup === item.label : undefined}
                   className={cx(
-                    "flex items-center gap-1.5 px-3.5 py-2 text-[0.8125rem] font-medium transition-colors",
+                    "flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.8125rem] font-medium transition-colors",
                     isActive(item.href)
                       ? onDark
-                        ? "text-accent-pale"
-                        : "text-accent"
+                        ? "bg-white/15 text-white"
+                        : "bg-sand text-ink"
                       : onDark
-                        ? "text-white/75 hover:text-white"
-                        : "text-ink-500 hover:text-ink",
+                        ? "text-white/75 hover:bg-white/10 hover:text-white"
+                        : "text-ink-500 hover:bg-sand hover:text-ink",
                   )}
                 >
                   {item.label}
@@ -127,13 +127,13 @@ export function Header() {
                 </Link>
 
                 {item.children && openGroup === item.label && (
-                  <div className="absolute left-0 top-full w-78 pt-2">
-                    <div className="border border-line bg-paper p-2 shadow-[0_24px_60px_-24px_rgba(14,20,29,0.28)]">
+                  <div className="absolute left-0 top-full w-78 pt-3">
+                    <div className="rounded-xl border border-line bg-paper p-2 shadow-[0_28px_70px_-28px_rgba(11,15,11,0.35)]">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="group block px-3.5 py-2.5 transition-colors hover:bg-sand"
+                          className="group block rounded-lg px-3.5 py-2.5 transition-colors hover:bg-sand"
                         >
                           <span className="block text-[0.8125rem] font-semibold text-ink transition-colors group-hover:text-accent">
                             {child.label}
@@ -156,8 +156,8 @@ export function Header() {
             <a
               href={`tel:${site.phone}`}
               className={cx(
-                "hidden text-[0.8125rem] font-semibold transition-colors xl:block nums",
-                onDark ? "text-white hover:text-accent-pale" : "text-ink hover:text-accent",
+                "hidden font-mono text-[0.8125rem] transition-colors xl:block nums",
+                onDark ? "text-white hover:text-accent-bright" : "text-ink hover:text-accent",
               )}
             >
               {site.phoneDisplay}
@@ -167,6 +167,7 @@ export function Header() {
               className={cx(
                 "btn hidden !px-5 !py-2.5 sm:inline-flex",
                 onDark ? "btn-accent" : "btn-primary",
+                "shrink-0",
               )}
             >
               Start a Conversation
@@ -224,7 +225,7 @@ export function Header() {
               <div className="flex items-center justify-between">
                 <Link
                   href={item.href}
-                  className="block py-4 font-display text-2xl text-ink"
+                  className="display-tight block py-4 text-2xl text-ink"
                 >
                   {item.label}
                 </Link>
@@ -276,7 +277,7 @@ export function Header() {
             <Link href="/contact" className="btn btn-primary w-full">
               Start a Conversation
             </Link>
-            <a href={`tel:${site.phone}`} className="btn btn-ghost w-full nums">
+            <a href={`tel:${site.phone}`} className="btn btn-ghost w-full font-mono nums">
               {site.phoneDisplay}
             </a>
           </div>
